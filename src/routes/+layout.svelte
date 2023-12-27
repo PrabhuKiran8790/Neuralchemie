@@ -1,0 +1,15 @@
+<script>
+	import { Navbar, Footer } from '$lib/components/site';
+	import '../app.pcss';
+</script>
+
+
+<Navbar />
+<div class="flex min-h-screen flex-col md:pt-10">
+	<div class="mb-20 flex-1 md:mb-0">
+		<slot />
+	</div>
+	<footer class="hidden border-t md:block">
+		<Footer />
+	</footer>
+</div>
