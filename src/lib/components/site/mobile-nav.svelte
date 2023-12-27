@@ -7,21 +7,10 @@
 	import { config, getNameFromPath } from '$lib/config';
 	import { navigating, page } from '$app/stores';
 	import { Label } from '$lib/components/ui/label';
-	import { Switch } from '$lib/components/ui/switch';
-	import { toggleMode } from 'mode-watcher';
 
 	let showScrollToTop = true;
 	let prevScrollY = 0;
 	let showDrawer = false;
-
-	let drawerHeight = 0; // Initialize the drawer height
-
-	onMount(() => {
-		const drawerContent = document.querySelector('.drawer-content') as HTMLElement;
-		if (drawerContent) {
-			drawerHeight = drawerContent.offsetHeight;
-		}
-	});
 
 	onMount(() => {
 		window.addEventListener('scroll', handleScroll);
@@ -55,12 +44,12 @@
 {#if showScrollToTop}
 	<div
 		class={cn(
-			'fixed bottom-0 z-[100] h-12 w-full bg-gray-50 shadow-xl md:hidden dark:bg-zinc-900',
+			'fixed bottom-0 z-[100] h-[4rem] w-full bg-gray-50 shadow-xl md:hidden dark:bg-zinc-900',
 			!showDrawer && 'border-t'
 		)}
 		transition:fly={{ y: 200, duration: 500 }}
 	>
-		<div class="flex h-full items-center justify-between px-3">
+		<div class="flex h-full items-center justify-between px-6">
 			<div>
 				<div class="flex items-center justify-center gap-2">
 					<a href="/" class="flex items-center justify-center gap-2">
@@ -98,7 +87,7 @@
 		on:click={toggleDrawer}
 	/>
 	<div
-		class="fixed inset-x-0 bottom-10 z-[80] w-full gap-4 rounded-t-xl border-t bg-background p-6 shadow-2xl md:hidden dark:bg-zinc-900"
+		class="fixed inset-x-0 bottom-14 z-[80] w-full gap-4 rounded-t-xl border-t bg-background p-6 shadow-2xl md:hidden dark:bg-zinc-900"
 		in:fly={{ y: '100%', duration: 500, opacity: 1 }}
 		out:fly={{ y: '100%', duration: 300, opacity: 1 }}
 	>
