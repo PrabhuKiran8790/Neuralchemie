@@ -1,5 +1,5 @@
 <script>
-	import { Navbar, Footer } from '$lib/components/site';
+	import { Navbar, Footer, MobileNav } from '$lib/components/site';
 	import '../app.pcss';
 </script>
 
@@ -13,3 +13,4 @@
 		<Footer />
 	</footer>
 </div>
+<MobileNav />

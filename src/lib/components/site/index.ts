@@ -6,3 +6,4 @@ export { default as Tag } from './tag.svelte';
 export { default as Masonry } from './masonry.svelte';
 export { default as Blogcard } from './blogcard.svelte';
 export { default as LatestPost } from './latest-post.svelte';
+export { default as MobileNav } from './mobile-nav.svelte';
