@@ -5,6 +5,9 @@
 	import { cubicOut } from 'svelte/easing';
 
 	import { toggleMode, mode } from 'mode-watcher';
+	import { cn } from '$lib/utils';
+	let className: string | undefined | null = undefined;
+	export { className as class };
 </script>
 
 <Button
@@ -15,7 +18,7 @@
 	title="Toggle {$mode === 'dark' ? 'Dark' : 'Light'} Mode"
 	variant="outline"
 	size="icon"
-	class="relative size-9 border-none"
+	class={cn('relative size-9 border-none', className)}
 >
 	{#if $mode === 'light'}
 		<div

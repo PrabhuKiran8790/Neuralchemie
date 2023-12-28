@@ -12,7 +12,7 @@
 		<div class="flex items-center gap-4">
 			<a href="/" class="flex items-center justify-center gap-4">
 				<NN />
-				<p class="text-lg font-semibold tracking-wider">{config.name}</p>
+				<p class="text-lg font-semibold uppercase tracking-widest">{config.name}</p>
 			</a>
 		</div>
 		<div class="hidden md:block">

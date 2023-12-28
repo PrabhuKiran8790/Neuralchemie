@@ -8,7 +8,7 @@ export interface BasePost {
 	tags: string[];
 	image: string | string[];
 	draft: boolean;
-	author: string;
+	author: string | string[];
 }
 
 export interface Post extends BasePost {}

@@ -7,3 +7,5 @@ export { default as Masonry } from './masonry.svelte';
 export { default as Blogcard } from './blogcard.svelte';
 export { default as LatestPost } from './latest-post.svelte';
 export { default as MobileNav } from './mobile-nav.svelte';
+export { default as AuthorWrapper } from './author-wrapper.svelte';
+export { default as Author } from './author.svelte';

@@ -3,8 +3,7 @@
 	import type { Post } from '$lib/types';
 	import { cn, formatDate } from '$lib/utils';
 	import { Calendar } from 'lucide-svelte';
-	import * as Avatar from '$lib/components/ui/avatar';
-	import { Tag } from '.';
+	import { AuthorWrapper, Tag } from '.';
 
 	export let post: Post;
 	let className: string = 'md:max-w-md';
@@ -46,6 +45,10 @@
 	{/if}
 	<div class="flex h-full flex-col justify-between gap-4 p-2.5 pt-0">
 		<div class={cn('flex flex-col justify-between gap-2', keepImage ? '' : 'pt-2')}>
+			<div class="flex items-center gap-2 text-xs">
+				<Calendar class="size-3" />
+				<h1>{formatDate(post.date)}</h1>
+			</div>
 			<h1 class={`text-lg font-semibold ${hover ? 'underline underline-offset-4' : ''}`}>
 				{post.title}
 			</h1>
@@ -59,18 +62,7 @@
 			<p class="text-muted-foreground">{post.description}</p>
 		</div>
 		<div>
-			<div class="flex items-center justify-between">
-				<div>
-					<Avatar.Root>
-						<Avatar.Image src="https://github.com/shadcn.png" alt="@shadcn" />
-						<Avatar.Fallback>CN</Avatar.Fallback>
-					</Avatar.Root>
-				</div>
-				<div class="flex items-center gap-2 text-sm">
-					<Calendar class="h-4 w-4" />
-					<h1>{formatDate(post.date)}</h1>
-				</div>
-			</div>
+			<AuthorWrapper {post} />
 		</div>
 	</div>
 </a>

@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { tagToSlug } from '$lib/posts';
 	import type { Post } from '$lib/types';
-	import { cn } from '$lib/utils';
-	import { Tag } from '.';
+	import { cn, formatDate } from '$lib/utils';
+	import { AuthorWrapper, Tag } from '.';
 	import { badgeVariants } from '../ui/badge';
 	import { Button } from '../ui/button';
+	import Balancer from 'svelte-wrap-balancer';
 
 	export let post: Post;
 </script>
@@ -19,31 +20,35 @@
 						<hr class="border-gray-300 dark:border-gray-700" />
 					</div>
 				</div>
-				<div class="flex flex-col gap-4">
-					<a href={post.slug}>
-						<h1 class="text-2xl font-bold leading-[1.1] md:text-[40px]">
-							{post.title}
-						</h1>
-					</a>
-					<p class="text-muted-foreground">{post.description}</p>
-					<div class="flex flex-wrap gap-2">
-						{#each post.tags as tag}
-							<Tag
-								{tag}
-								href={`/tags/${tagToSlug(tag)}`}
-								class={cn(
-									badgeVariants({
-										variant: 'secondary'
-									}),
-									'border border-primary'
-								)}
-							/>
-						{/each}
+				<Balancer>
+					<div class="flex flex-col gap-4">
+						<p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p>
+						<a href={post.slug}>
+							<h1 class="text-2xl font-bold leading-[1.1] tracking-wider md:text-[40px]">
+								{post.title}
+							</h1>
+						</a>
+						<p class="text-muted-foreground">{post.description}</p>
+						<AuthorWrapper {post} />
+						<div class="flex flex-wrap gap-2">
+							{#each post.tags as tag}
+								<Tag
+									{tag}
+									href={`/tags/${tagToSlug(tag)}`}
+									class={cn(
+										badgeVariants({
+											variant: 'secondary'
+										}),
+										'rounded-md border'
+									)}
+								/>
+							{/each}
+						</div>
+						<div>
+							<Button href={`/blog/${post.slug}`} class="mt-4">Read more</Button>
+						</div>
 					</div>
-					<div>
-						<Button href={post.slug} class="mt-4">Read more</Button>
-					</div>
-				</div>
+				</Balancer>
 			</div>
 			<div class="hidden w-[50%] md:block">
 				{#if post.image}

@@ -37,6 +37,7 @@
 	$: {
 		if ($navigating) {
 			showDrawer = false;
+			document.body.classList.remove('no-scroll');
 		}
 	}
 </script>
@@ -83,7 +84,7 @@
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<!-- svelte-ignore a11y-no-static-element-interactions -->
 	<div
-		class="fixed inset-0 z-[70] bg-background/80 backdrop-blur-sm md:hidden"
+		class="fixed inset-0 z-[70] bg-background/50 backdrop-blur-sm md:hidden"
 		on:click={toggleDrawer}
 	/>
 	<div
@@ -106,7 +107,7 @@
 				{/each}
 				<div class="flex w-full items-center justify-between space-x-2 px-3">
 					<Label for="theme" class="text-lg tracking-wider">Theme</Label>
-					<ThemeToggle />
+					<ThemeToggle class="dark:bg-zinc-800"/>
 				</div>
 			</div>
 		</div>
