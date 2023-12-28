@@ -115,6 +115,6 @@ export function getAuthorDetailsFromAlias(alias: string) {
 
 export const githubConfig = {
 	username: 'PrabhuKiran8790',
-	repo: 'prabhukirankonda-portfolio',
+	repo: 'codedojo',
 	branch: 'main'
 };

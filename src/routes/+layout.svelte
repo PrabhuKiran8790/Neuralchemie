@@ -1,8 +1,10 @@
 <script>
 	import { Navbar, Footer, MobileNav } from '$lib/components/site';
+	import { preparePageTransition } from '$lib/page-transitions';
 	import '../app.pcss';
-</script>
 
+	preparePageTransition();
+</script>
 
 <Navbar />
 <div class="flex min-h-screen flex-col md:pt-10">

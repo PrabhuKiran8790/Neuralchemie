@@ -3,6 +3,7 @@
 	import { config } from '$lib/config';
 	import { cn } from '$lib/utils';
 	import { ThemeToggle, NN } from '.';
+	import Search from './search.svelte';
 </script>
 
 <nav

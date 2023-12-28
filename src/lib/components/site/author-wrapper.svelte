@@ -6,11 +6,13 @@
 
 	export let post: Post;
 	export let hover: boolean = true;
+	let className: string | undefined = undefined;
+	export { className as class };
 </script>
 
 {#if hover}
 	{#if Array.isArray(post.author)}
-		<div class="flex flex-wrap items-center gap-2">
+		<div class={cn('flex flex-wrap items-center gap-4', className)}>
 			{#each post.author as author_}
 				{@const author = getAuthorDetailsFromAlias(author_)}
 				<Author {author} {hover} />

@@ -9,7 +9,7 @@
 
 	<div class="flex items-center justify-center">
 		<div class="my-7">
-			<h1 class="text-4xl font-bold tracking-widest">All Blogs</h1>
+			<h1 class="text-4xl font-bold tracking-widest">Recent Blogs</h1>
 		</div>
 	</div>
 

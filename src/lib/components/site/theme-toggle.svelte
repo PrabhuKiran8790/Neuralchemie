@@ -3,11 +3,16 @@
 	import { Sun, MoonStars } from 'phosphor-svelte';
 	import { scale } from 'svelte/transition';
 	import { cubicOut } from 'svelte/easing';
+	import { theme } from '$lib/stores';
 
 	import { toggleMode, mode } from 'mode-watcher';
 	import { cn } from '$lib/utils';
 	let className: string | undefined | null = undefined;
 	export { className as class };
+
+	$: {
+		$theme = $mode;
+	}
 </script>
 
 <Button

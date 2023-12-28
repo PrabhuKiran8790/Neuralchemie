@@ -1,5 +1,5 @@
 <script lang="ts">
-	// import toast from 'svelte-french-toast';
+	import { Toaster, toast } from 'svelte-french-toast';
 	import { fly } from 'svelte/transition';
 	import { extensionMappings } from './language-icons/getLangIcons';
 	import { Check, Copy } from 'lucide-svelte';
@@ -18,9 +18,9 @@
 	const handleCopy = () => {
 		if (codeElement) {
 			navigator.clipboard.writeText(codeElement.innerText ?? '');
-			// toast.success('Copied', {
-			// 	style: 'background: #333; color: #fff;'
-			// });
+			toast.success('Copied', {
+				style: 'background: #333; color: #fff;'
+			});
 		}
 
 		copyState = true;
@@ -78,20 +78,22 @@
 	});
 </script>
 
+<Toaster />
+
 <div class={cn($$restProps.class, title__ ? 'mt-[14px]' : 'mb-2')}>
 	{#if title__}
 		<div
-			class="flex items-center justify-between px-2 py-1 bg-gray-200 rounded-t-lg md:grid md:grid-cols-3 dark:bg-zinc-800"
+			class="flex items-center justify-between rounded-t-lg bg-gray-200 px-2 py-1 md:grid md:grid-cols-3 dark:bg-zinc-800"
 		>
 			<div class="hidden md:block">
 				<div class="flex items-center gap-2">
-					<div class="w-3 h-3 bg-red-500 rounded-full" />
-					<div class="rounded-full h-3 w-3 bg-[#f5bf4f]" />
-					<div class="w-3 h-3 rounded-full bg-emerald-400" />
+					<div class="h-3 w-3 rounded-full bg-red-500" />
+					<div class="h-3 w-3 rounded-full bg-[#f5bf4f]" />
+					<div class="h-3 w-3 rounded-full bg-emerald-400" />
 				</div>
 			</div>
 
-			<div class="flex items-center justify-center text-center gap-2">
+			<div class="flex items-center justify-center gap-2 text-center">
 				<!-- if language in extension mappings -->
 				{#if extensionMappings[title.split('.').pop() || '']}
 					<LangIcon extension={title.split('.').pop() || ''} />
@@ -100,7 +102,7 @@
 			</div>
 			<div class="text-end">
 				<button
-					class="px-2 rounded-lg hover:bg-gray-300 hover:dark:bg-zinc-700 no-highlight"
+					class="no-highlight rounded-lg px-2 hover:bg-gray-300 hover:dark:bg-zinc-700"
 					on:click={handleCopy}
 				>
 					{#if copyState}
@@ -118,7 +120,7 @@
 		tabindex="0"
 		{...$$restProps}
 		class={cn(
-			'rounded-lg bg-slate-50 dark:bg-zinc-900 max-h-[450px] border-2',
+			'max-h-[450px] rounded-lg border-2 bg-slate-50 dark:bg-zinc-900',
 			title__ ? 'rounded-t-none' : 'mt-[14px]'
 		)}>
 			<slot />
@@ -126,15 +128,15 @@
 	{#if !title__}
 		<button
 			on:click={handleCopy}
-			class="absolute z-10 inline-flex items-center justify-center w-6 h-6 p-0 text-sm font-medium no-highlight rounded-md transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-slate-200 dark:hover:bg-zinc-700 right-2 top-2"
+			class="no-highlight absolute right-2 top-2 z-10 inline-flex h-6 w-6 items-center justify-center rounded-md p-0 text-sm font-medium transition-colors hover:bg-slate-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 dark:hover:bg-zinc-700"
 		>
 			{#if copyState}
 				<span in:fly={{ y: -4, delay: 50 }}>
-					<Check class="w-4 h-4" />
+					<Check class="h-4 w-4" />
 				</span>
 			{:else}
 				<span in:fly={{ y: 4, delay: 50 }}>
-					<Copy class="w-4 h-4" />
+					<Copy class="h-4 w-4" />
 				</span>
 			{/if}</button
 		>
