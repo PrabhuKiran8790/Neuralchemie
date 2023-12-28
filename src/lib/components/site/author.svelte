@@ -25,7 +25,7 @@
 				<p>{author?.name}</p>
 			</a>
 		</HoverCard.Trigger>
-		<HoverCard.Content class="flex w-[400px] flex-col gap-3">
+		<HoverCard.Content class="flex w-[420px] flex-col gap-3">
 			<div class="flex justify-between space-x-4">
 				<Avatar.Root class="size-14">
 					<Avatar.Image src={`${author?.social.GitHub.url}.png`} />
