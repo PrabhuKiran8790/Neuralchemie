@@ -45,10 +45,10 @@
 	{/if}
 	<div class="flex h-full flex-col justify-between gap-4 p-2.5 pt-0">
 		<div class={cn('flex flex-col justify-between gap-2', keepImage ? '' : 'pt-2')}>
-			<div class="flex items-center gap-2 text-xs">
+			<!-- <div class="flex items-center gap-2 text-xs">
 				<Calendar class="size-3" />
 				<h1>{formatDate(post.date)}</h1>
-			</div>
+			</div> -->
 			<h1 class={`text-lg font-semibold ${hover ? 'underline underline-offset-4' : ''}`}>
 				{post.title}
 			</h1>

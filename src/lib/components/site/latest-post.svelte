@@ -22,7 +22,7 @@
 				</div>
 				<Balancer>
 					<div class="flex flex-col gap-4">
-						<p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p>
+						<!-- <p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p> -->
 						<a href={post.slug}>
 							<h1 class="text-2xl font-bold leading-[1.1] tracking-wider md:text-[40px]">
 								{post.title}
