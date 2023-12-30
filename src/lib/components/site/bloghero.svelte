@@ -50,7 +50,6 @@
 			/>
 		{/each}
 	</div>
-	<!-- {JSON.stringify($page.data)} -->
 	<div class="flex items-center space-x-2 text-muted-foreground">
 		<Calendar class="h-3 w-3 md:h-4 md:w-4" />
 		<p class="text-xs font-semibold md:text-sm">{formatDate(meta.date, 'long')}</p>

@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { List, X } from 'phosphor-svelte';
@@ -6,7 +7,8 @@
 	import { NN, ThemeToggle } from '.';
 	import { config, getNameFromPath } from '$lib/config';
 	import { navigating, page } from '$app/stores';
-	import { Label } from '$lib/components/ui/label';
+	import Liking from './liking.svelte';
+	import { Toc } from './table-of-contents';
 
 	let showScrollToTop = true;
 	let prevScrollY = 0;
@@ -50,24 +52,28 @@
 		)}
 		transition:fly={{ y: 200, duration: 500 }}
 	>
-		<div class="flex h-full items-center justify-between px-6">
+		<div class="grid h-full grid-cols-3 items-center justify-between px-6">
 			<div>
-				<div class="flex items-center justify-center gap-2">
+				<div class="flex items-center justify-start gap-2">
 					<a href="/" class="flex items-center justify-center gap-2">
 						<NN class="size-10" />
-						<p class="text-lg uppercase tracking-widest">{config.name}</p>
+						<!-- <p class="text-lg uppercase tracking-widest">{config.name}</p> -->
 					</a>
-					{#if getNameFromPath($page.url.pathname)}
+					<!-- {#if getNameFromPath($page.url.pathname)}
 						<div class="flex items-center justify-center gap-3">
 							<div class="h-5 w-[1px] bg-primary"></div>
 							<p class="text-xs tracking-wider">
 								{getNameFromPath($page.url.pathname)}
 							</p>
 						</div>
-					{/if}
+					{/if} -->
 				</div>
 			</div>
-			<div>
+			<div class="flex items-center justify-center gap-1">
+				<Liking />
+				<Toc />
+			</div>
+			<div class="flex justify-end">
 				<button on:click={toggleDrawer} class="flex items-center justify-center">
 					{#if !showDrawer}
 						<List class="size-6" />
@@ -86,6 +92,7 @@
 	<div
 		class="fixed inset-0 z-[70] bg-background/50 backdrop-blur-sm md:hidden"
 		on:click={toggleDrawer}
+		transition:fade={{ duration: 150 }}
 	/>
 	<div
 		class="fixed inset-x-0 bottom-14 z-[80] w-full gap-4 rounded-t-xl border-t bg-background p-6 shadow-2xl md:hidden dark:bg-zinc-900"
@@ -106,8 +113,8 @@
 					</a>
 				{/each}
 				<div class="flex w-full items-center justify-between space-x-2 px-3">
-					<Label for="theme" class="text-lg tracking-wider">Theme</Label>
-					<ThemeToggle class="dark:bg-zinc-800"/>
+					<p class="text-lg font-normal tracking-wider">Theme</p>
+					<ThemeToggle class="dark:bg-zinc-800" />
 				</div>
 			</div>
 		</div>

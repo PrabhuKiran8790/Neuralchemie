@@ -84,17 +84,17 @@
 
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger
-		class="flex items-center justify-center w-10 h-10 p-1 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-900"
+		class="flex h-10 w-10 items-center justify-center rounded-full p-1 hover:bg-gray-200 dark:hover:bg-zinc-900"
 	>
-		<BookOpen class="w-5 h-5" />
+		<BookOpen class="h-5 w-5" />
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content
-		class="px-3 border border-primary min-w-[95%] md:min-w-[60%] lg:min-w-[30%] pb-2"
+		class="z-[100] min-w-[95%] border border-primary px-3 pb-2 md:min-w-[60%] lg:min-w-[30%]"
 	>
 		<DropdownMenu.Group class="w-full">
 			<DropdownMenu.Label>On this page</DropdownMenu.Label>
 			<DropdownMenu.Separator />
-			<div class="space-y-2 max-h-[300px] md:max-h-[500px] overflow-scroll">
+			<div class="max-h-[300px] space-y-2 overflow-scroll md:max-h-[500px]">
 				<Tree tree={filteredHeadingsList} />
 			</div>
 		</DropdownMenu.Group>

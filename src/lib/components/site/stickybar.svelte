@@ -7,36 +7,10 @@
 	import { ArrowUp, MessageSquare, Share2 } from 'lucide-svelte';
 	import { fly } from 'svelte/transition';
 	import Linkedin from './icons/linkedin.svelte';
-	import { Heart } from 'phosphor-svelte';
-	import axios from 'axios';
-	import { cn } from '$lib/utils';
-	import { invalidateAll } from '$app/navigation';
+	import Liking from './liking.svelte';
 
 	export let element: HTMLElement | null = null;
 	export let showScrollToTop: boolean;
-
-	let liked: boolean = false;
-	let loading = false;
-
-	$: {
-		if ($page.data.likedPosts && $page.data.likedPosts.includes($page.params.slug)) {
-			liked = true;
-		}
-	}
-
-	async function addLike() {
-		loading = true;
-		liked = !liked;
-		const response = await axios.post('/api/posts', {
-			liked: liked,
-			slug: $page.params.slug
-		});
-
-		if (response.status === 200) {
-			invalidateAll();
-			loading = false;
-		}
-	}
 </script>
 
 <div
@@ -46,30 +20,9 @@
 >
 	<div class="flex items-center justify-center space-x-4">
 		<div
-			class="flex items-center justify-evenly space-x-3 rounded-l-full rounded-r-full border border-primary/50 bg-muted px-7 py-1 shadow-sm"
+			class="flex items-center justify-evenly space-x-1 rounded-l-full rounded-r-full border border-primary/50 bg-muted px-7 py-1 shadow-sm"
 		>
-			<Tooltip.Root openDelay={0}>
-				<Tooltip.Trigger>
-					<button
-						on:click={addLike}
-						disabled={loading}
-						class="flex h-12 w-12 items-center justify-center gap-2 rounded-full p-1"
-					>
-						{#if $page.data.likes.find((obj) => obj.slug === $page.params.slug)?.likes}
-							<p class="text-xs text-muted-foreground">
-								{$page.data.likes.find((obj) => obj.slug === $page.params.slug)?.likes}
-							</p>
-						{/if}
-						<Heart
-							class={cn('h-5 w-5', liked && 'text-red-500')}
-							weight={liked ? 'fill' : 'bold'}
-						/>
-					</button>
-				</Tooltip.Trigger>
-				<Tooltip.Content class="border border-primary">
-					<p>Like</p>
-				</Tooltip.Content>
-			</Tooltip.Root>
+			<Liking />
 			<!-- Comments -->
 			<Tooltip.Root openDelay={0}>
 				<Tooltip.Trigger>
