@@ -69,9 +69,11 @@
 					{/if} -->
 				</div>
 			</div>
-			<div class="flex items-center justify-center gap-1">
-				<Liking />
-				<Toc />
+			<div class="flex items-center justify-center">
+				{#if $page.params.slug}
+					<Liking />
+					<Toc />
+				{/if}
 			</div>
 			<div class="flex justify-end">
 				<button on:click={toggleDrawer} class="flex items-center justify-center">
