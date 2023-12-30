@@ -7,7 +7,8 @@ author:
     - Shayaan
 image: 'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DcsT4AtAq8dxqbDHP_Uppg.jpeg'
 tags: 
-    - Machine Learning
+    - Deep Learning
+    - Auto Encoders
 draft: false
 ---
 

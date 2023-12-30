@@ -31,14 +31,14 @@ export const POST = async ({ request, locals }) => {
 				update: {
 					likes: { increment: 1 },
 					likedBy: {
-						connect: { email: email }
+						connect: { email: email as string }
 					}
 				},
 				create: {
 					slug: slug,
 					likes: 1,
 					likedBy: {
-						connect: { email: email }
+						connect: { email: email as string }
 					}
 				}
 			});
@@ -48,7 +48,7 @@ export const POST = async ({ request, locals }) => {
 				data: {
 					likes: { decrement: 1 },
 					likedBy: {
-						disconnect: { email: email }
+						disconnect: { email: email as string }
 					}
 				}
 			});

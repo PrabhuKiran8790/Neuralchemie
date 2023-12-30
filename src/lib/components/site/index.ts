@@ -9,3 +9,4 @@ export { default as LatestPost } from './latest-post.svelte';
 export { default as MobileNav } from './mobile-nav.svelte';
 export { default as AuthorWrapper } from './author-wrapper.svelte';
 export { default as Author } from './author.svelte';
+export { default as ComboBox } from './combobox.svelte';
