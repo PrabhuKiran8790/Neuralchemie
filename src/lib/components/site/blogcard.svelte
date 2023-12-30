@@ -2,7 +2,7 @@
 	import { tagToSlug } from '$lib/posts';
 	import type { Post } from '$lib/types';
 	import { cn, formatDate } from '$lib/utils';
-	import { Calendar } from 'lucide-svelte';
+	import { Heart } from 'phosphor-svelte';
 	import { AuthorWrapper, Tag } from '.';
 
 	export let post: Post;
@@ -11,6 +11,7 @@
 	export let keepImage: boolean = true;
 	export let tagClass: string = '';
 	export let shallow: boolean = false;
+	export let likesCount: number = 0;
 	let hover: boolean = false;
 </script>
 
@@ -45,10 +46,12 @@
 	{/if}
 	<div class="flex h-full flex-col justify-between gap-4 p-2.5 pt-0">
 		<div class={cn('flex flex-col justify-between gap-2', keepImage ? '' : 'pt-2')}>
-			<!-- <div class="flex items-center gap-2 text-xs">
-				<Calendar class="size-3" />
-				<h1>{formatDate(post.date)}</h1>
-			</div> -->
+			{#if likesCount > 0}
+				<div class="-mb-2 flex items-center gap-1 text-xs">
+					<Heart class="size-3 text-gray-400" weight="fill" />
+					<h1>{likesCount}</h1>
+				</div>
+			{/if}
 			<h1 class={`text-lg font-semibold ${hover ? 'underline underline-offset-4' : ''}`}>
 				{post.title}
 			</h1>

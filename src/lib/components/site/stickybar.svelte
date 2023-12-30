@@ -7,9 +7,31 @@
 	import { ArrowUp, MessageSquare, Share2 } from 'lucide-svelte';
 	import { fly } from 'svelte/transition';
 	import Linkedin from './icons/linkedin.svelte';
+	import { Heart } from 'phosphor-svelte';
+	import axios from 'axios';
+	import { cn } from '$lib/utils';
+	import { invalidateAll } from '$app/navigation';
 
 	export let element: HTMLElement | null = null;
 	export let showScrollToTop: boolean;
+
+	let liked: boolean = false;
+
+	$: {
+		liked = $page.data.likedPosts.includes($page.params.slug) ? true : false;
+	}
+
+	async function addLike() {
+		liked = !liked;
+		const response = await axios.post('/api/posts', {
+			liked: liked,
+			slug: $page.params.slug
+		});
+
+		if (response.status === 200) {
+			invalidateAll();
+		}
+	}
 </script>
 
 <div
@@ -21,6 +43,27 @@
 		<div
 			class="flex items-center justify-evenly space-x-3 rounded-l-full rounded-r-full border border-primary/50 bg-muted px-7 py-1 shadow-sm"
 		>
+			<Tooltip.Root openDelay={0}>
+				<Tooltip.Trigger>
+					<button
+						on:click={addLike}
+						class="flex h-12 w-12 items-center justify-center gap-2 rounded-full p-1"
+					>
+						{#if $page.data.likes.find((obj) => obj.slug === $page.params.slug)?.likes}
+							<p class="text-xs text-muted-foreground">
+								{$page.data.likes.find((obj) => obj.slug === $page.params.slug)?.likes}
+							</p>
+						{/if}
+						<Heart
+							class={cn('h-5 w-5', liked && 'text-red-500')}
+							weight={liked ? 'fill' : 'bold'}
+						/>
+					</button>
+				</Tooltip.Trigger>
+				<Tooltip.Content class="border border-primary">
+					<p>Like</p>
+				</Tooltip.Content>
+			</Tooltip.Root>
 			<!-- Comments -->
 			<Tooltip.Root openDelay={0}>
 				<Tooltip.Trigger>
@@ -68,7 +111,7 @@
 										class="space-x-2"
 										href={`http://www.twitter.com/share?url=${$page.url}`}
 									>
-										<X class="size-5" />
+										<X />
 										<p>Twitter</p>
 									</DropdownMenu.Item>
 									<DropdownMenu.Item
