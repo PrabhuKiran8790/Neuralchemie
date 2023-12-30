@@ -16,12 +16,16 @@
 	export let showScrollToTop: boolean;
 
 	let liked: boolean = false;
+	let loading = false;
 
 	$: {
-		liked = $page.data.likedPosts.includes($page.params.slug) ? true : false;
+		if ($page.data.likedPosts && $page.data.likedPosts.includes($page.params.slug)) {
+			liked = true;
+		}
 	}
 
 	async function addLike() {
+		loading = true;
 		liked = !liked;
 		const response = await axios.post('/api/posts', {
 			liked: liked,
@@ -30,6 +34,7 @@
 
 		if (response.status === 200) {
 			invalidateAll();
+			loading = false;
 		}
 	}
 </script>
@@ -47,6 +52,7 @@
 				<Tooltip.Trigger>
 					<button
 						on:click={addLike}
+						disabled={loading}
 						class="flex h-12 w-12 items-center justify-center gap-2 rounded-full p-1"
 					>
 						{#if $page.data.likes.find((obj) => obj.slug === $page.params.slug)?.likes}
