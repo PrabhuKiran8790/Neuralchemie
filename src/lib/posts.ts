@@ -84,3 +84,16 @@ export const groupPostsByTag = async () => {
 		postsByTag
 	};
 };
+
+export async function getPostsByAuthor(author: string) {
+	const posts = await getPosts();
+	return posts
+		.filter((post) => {
+			if (typeof post.author === 'string') {
+				return post.author === author;
+			} else if (Array.isArray(post.author)) {
+				return post.author.includes(author);
+			}
+		})
+		.sort((first, second) => new Date(second.date).getTime() - new Date(first.date).getTime());
+}

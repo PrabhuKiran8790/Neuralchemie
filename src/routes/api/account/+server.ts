@@ -24,8 +24,11 @@ export const POST = async ({ request, locals }) => {
 
 	const { slug, liked } = body;
 
+	console.log(body);
+
 	try {
 		if (liked) {
+			console.log('liked');
 			await db.blog.upsert({
 				where: { slug: slug },
 				update: {
@@ -42,7 +45,9 @@ export const POST = async ({ request, locals }) => {
 					}
 				}
 			});
+			console.log('done liking');
 		} else {
+			console.log('disliked');
 			await db.blog.update({
 				where: { slug: slug },
 				data: {
@@ -52,6 +57,7 @@ export const POST = async ({ request, locals }) => {
 					}
 				}
 			});
+			console.log('done disliking');
 		}
 
 		return json({ status: 200 });

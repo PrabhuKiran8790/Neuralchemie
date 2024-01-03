@@ -14,7 +14,7 @@ const icons: Record<string, ComponentType<SvelteComponent>> = {
 interface SocialIcons {
 	[key: string]: {
 		url: string;
-		icon?: ComponentType<SvelteComponent>; // You can use a more specific type for the icon if available
+		icon?: ComponentType<SvelteComponent>;
 	};
 }
 interface Config {
@@ -33,6 +33,7 @@ export interface Author_ {
 	bio: string;
 	tagline: string;
 	social: SocialIcons;
+	cover?: string;
 }
 
 export const config: Config = {
@@ -69,7 +70,9 @@ export const config: Config = {
 				Mail: {
 					url: 'mailto:prabhukiran426@gmail.com'
 				}
-			}
+			},
+			cover:
+				'https://images.pexels.com/photos/247671/pexels-photo-247671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 		},
 		{
 			name: 'Shayaan Hussain',
@@ -93,7 +96,35 @@ export const config: Config = {
 				Mail: {
 					url: 'mailto:shayaan.hussain2001@gmail.com'
 				}
-			}
+			},
+			cover:
+				'https://images.pexels.com/photos/2397652/pexels-photo-2397652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+		},
+		{
+			name: 'Mohammed Raamizuddin',
+			path: 'mohammed-raamizuddin',
+			website: 'https://raamizuddin.vercel.app',
+			aliases: ['Raamiz'],
+			bio: `
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit debitis ex dolorum, dolor, quae odio quis id amet iste assumenda nihil ipsa vitae consectetur odit voluptates eligendi. Nulla, nobis officia?
+			`,
+			tagline: 'lorem ipsum dolor sit amet consectetur adipisicing elit.',
+			social: {
+				GitHub: {
+					url: 'https://gitub.com/iiamraamiz'
+				},
+				Twitter: {
+					url: 'https://twitter.com/iiamraamiz'
+				},
+				Linkedin: {
+					url: 'https://www.linkedin.com/in/mohammed-raamizuddin'
+				},
+				Mail: {
+					url: 'mailto:raamiz2510@gmail.com'
+				}
+			},
+			cover:
+				'https://images.pexels.com/photos/1312488/pexels-photo-1312488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
 		}
 	]
 };
@@ -111,6 +142,10 @@ export function getAuthorDetailsFromAlias(alias: string) {
 		});
 	}
 	return matchingAuthor || null;
+}
+
+export function getIconFromName(name: string) {
+	return icons[name];
 }
 
 export const githubConfig = {
