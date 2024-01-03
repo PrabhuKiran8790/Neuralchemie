@@ -41,6 +41,7 @@
 										}),
 										'rounded-md border'
 									)}
+									shallow
 								/>
 							{/each}
 						</div>

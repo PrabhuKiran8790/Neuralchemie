@@ -25,6 +25,7 @@
 		e.preventDefault();
 		const { href } = e.currentTarget as HTMLAnchorElement;
 		const result = await preloadData(href);
+		console.log(result);
 		if (result.type === 'loaded' && result.status === 200) {
 			pushState(href, {
 				tagsData: result.data
@@ -60,8 +61,8 @@
 			{count}
 		</p>
 	</a>
-	<!-- {:else if shallow}
-	<Badge class={cn('rounded', className)} {href} on:click={showModal}>{tag}</Badge> -->
+{:else if shallow}
+	<Badge class={cn('rounded', className)} {href} on:click={showModal}>{tag}</Badge>
 {:else}
 	<Badge on:click={showModal} class={cn('rounded', className)} {href}>{tag}</Badge>
 {/if}

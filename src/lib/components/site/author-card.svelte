@@ -77,6 +77,7 @@
 								href={author.social[social].url}
 								variant="outline"
 								class="grid grid-cols-2 gap-3"
+								target="_blank"
 							>
 								<div class="flex items-center justify-end">
 									<svelte:component
