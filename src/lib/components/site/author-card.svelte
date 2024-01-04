@@ -105,25 +105,39 @@
 				</Tabs.Root>
 			</div>
 		{:else}
-			<div class="my-3 flex flex-col gap-2">
-				{#each Object.keys(author.social) as social}
-					<Button
-						href={author.social[social].url}
-						variant="outline"
-						class="grid grid-cols-2 gap-3"
-						target="_blank"
-					>
-						<div class="flex items-center justify-end">
+			<div class="hidden md:block">
+				<div class="my-3 flex flex-col gap-2">
+					{#each Object.keys(author.social) as social}
+						<Button
+							href={author.social[social].url}
+							variant="outline"
+							class="grid grid-cols-2 gap-3"
+							target="_blank"
+						>
+							<div class="flex items-center justify-end">
+								<svelte:component
+									this={getIconFromName(social)}
+									class={cn(social === 'Twitter' ? 'size-4' : 'size-5')}
+								/>
+							</div>
+							<div>
+								<p>{social}</p>
+							</div>
+						</Button>
+					{/each}
+				</div>
+			</div>
+			<div class="flex items-center justify-center md:hidden">
+				<div class="my-3 flex flex-wrap gap-7">
+					{#each Object.keys(author.social) as social}
+						<Button href={author.social[social].url} variant="outline" target="_blank">
 							<svelte:component
 								this={getIconFromName(social)}
 								class={cn(social === 'Twitter' ? 'size-4' : 'size-5')}
 							/>
-						</div>
-						<div>
-							<p>{social}</p>
-						</div>
-					</Button>
-				{/each}
+						</Button>
+					{/each}
+				</div>
 			</div>
 		{/if}
 	</div>
