@@ -20,7 +20,7 @@
 	<div class="mt-7 gap-x-[5px]">
 		<Masonry gridGap={'0.75rem'} items={data.posts} stretchFirst={false} reset>
 			{#each data.posts as post}
-				<Blogcard {post} shallow={true} keepImage={true} />
+				<Blogcard {post} shallow={true} keepImage={true} n={data.posts.length}/>
 			{/each}
 		</Masonry>
 	</div>

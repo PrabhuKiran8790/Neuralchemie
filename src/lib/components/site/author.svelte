@@ -15,7 +15,7 @@
 {#if hover}
 	<HoverCard.Root openDelay={200} closeDelay={100}>
 		<HoverCard.Trigger class="w-fit">
-			<a class="flex items-center gap-2" href={`/author/${author?.path}`}>
+			<a class="flex items-center gap-2" href={`/authors/${author?.path}`}>
 				<Avatar.Root class={cn('size-7', className)}>
 					<Avatar.Image src={`${author?.social.GitHub.url}.png`} alt={`@${author?.path}`} />
 					<Avatar.Fallback>
@@ -37,7 +37,7 @@
 					<div class="flex items-center justify-between">
 						<div class="flex flex-col">
 							<h1>{author?.name}</h1>
-							<a href={`/author/${author?.path}`} class="text-xs text-muted-foreground"
+							<a href={`/authors/${author?.path}`} class="text-xs text-muted-foreground"
 								>@{author?.path}</a
 							>
 						</div>

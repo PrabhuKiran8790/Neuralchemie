@@ -24,6 +24,7 @@
 							<a
 								href={route.path}
 								class="group relative inline-block rounded-lg px-3 py-1 text-lg tracking-wider hover:bg-accent hover:text-accent-foreground"
+								target={route.name === 'GitHub' ? '_black' : ''}
 							>
 								<span
 									class={cn(

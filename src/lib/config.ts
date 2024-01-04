@@ -129,6 +129,11 @@ export const config: Config = {
 	]
 };
 
+export function authorPathToAlias(path: string) {
+	const matchingAuthor = config.authors.find((author) => author.path === path);
+	return matchingAuthor ? matchingAuthor.aliases[0] : null;
+}
+
 export function getNameFromPath(path: string) {
 	const matchingRoute = config.routes.find((route) => route.path === path);
 	return matchingRoute ? matchingRoute.name : null;

@@ -12,11 +12,16 @@
 	export let tagClass: string = '';
 	export let shallow: boolean = false;
 	export let likesCount: number = 0;
+	export let n: number = 0;
 	let hover: boolean = false;
 </script>
 
 <a
-	class={cn('no-highlight block rounded-xl border-2 pb-0 hover:border-primary', className)}
+	class={cn(
+		'no-highlight block rounded-xl border-2 pb-0 hover:border-primary',
+		n === 1 ? 'md:max-w-md' : 'w-full',
+		className
+	)}
 	on:mouseenter={() => (hover = true)}
 	on:mouseleave={() => (hover = false)}
 	href={`/blog/${post.slug}`}

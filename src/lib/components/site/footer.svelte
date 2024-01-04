@@ -15,7 +15,7 @@
 		<div class="flex items-center gap-2">
 			<h1>Made with</h1>
 			<Svelte class="inline-block h-7 w-7" />
-			<h1>By Prabhu Kiran Konda</h1>
+			<a href="/authors/prabhukirankonda">By Prabhu Kiran Konda</a>
 		</div>
 	</div>
 </div>
