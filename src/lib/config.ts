@@ -43,10 +43,10 @@ export const config: Config = {
 			name: route,
 			path: `/${route.toLowerCase()}`
 		})),
-		{
-			name: 'GitHub',
-			path: 'https://www.github.com/PrabhuKiran8790'
-		}
+		// {
+		// 	name: 'GitHub',
+		// 	path: 'https://www.github.com/PrabhuKiran8790'
+		// }
 	],
 	authors: [
 		{
