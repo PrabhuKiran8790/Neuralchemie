@@ -111,7 +111,7 @@ export const config: Config = {
 			tagline: 'lorem ipsum dolor sit amet consectetur adipisicing elit.',
 			social: {
 				GitHub: {
-					url: 'https://gitub.com/iiamraamiz'
+					url: 'https://github.com/iiamraamiz'
 				},
 				Twitter: {
 					url: 'https://twitter.com/iiamraamiz'

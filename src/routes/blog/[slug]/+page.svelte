@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { dev } from '$app/environment';
 	import { page } from '$app/stores';
-	// import { BlogMetatags, SVGDoodle, Stickybar } from '$lib/components/site';
+	import { BlogMetaTags, Stickybar } from '$lib/components/site';
 	import Bloghero from '$lib/components/site/bloghero.svelte';
 	import Comments from '$lib/components/site/gicsus_/comments.svelte';
 	import { Button } from '$lib/components/ui/button/index.js';
@@ -11,7 +11,6 @@
 	import { Github } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
-	import Stickybar from '$lib/components/site/stickybar.svelte';
 
 	export let data: PageData;
 
@@ -75,7 +74,7 @@
 	}
 </script>
 
-<!-- <BlogMetatags {meta} /> -->
+<BlogMetaTags {meta} />
 
 <div
 	class="fixed top-0 z-[50] h-0.5 w-[0%] bg-muted-foreground md:top-[64px]"

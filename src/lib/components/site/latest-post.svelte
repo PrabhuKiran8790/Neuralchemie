@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { tagToSlug } from '$lib/posts';
 	import type { Post } from '$lib/types';
-	import { cn, formatDate } from '$lib/utils';
+	import { cn } from '$lib/utils';
+	import Balancer from 'svelte-wrap-balancer';
 	import { AuthorWrapper, Tag } from '.';
 	import { badgeVariants } from '../ui/badge';
 	import { Button } from '../ui/button';
-	import Balancer from 'svelte-wrap-balancer';
 
 	export let post: Post;
 </script>
@@ -23,7 +23,7 @@
 				<Balancer>
 					<div class="flex flex-col gap-4">
 						<!-- <p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p> -->
-						<a href={post.slug}>
+						<a href={`/blog/${post.slug}`}>
 							<h1 class="text-2xl font-bold leading-[1.1] tracking-wider md:text-[40px]">
 								{post.title}
 							</h1>

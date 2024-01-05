@@ -11,3 +11,6 @@ export { default as AuthorWrapper } from './author-wrapper.svelte';
 export { default as Author } from './author.svelte';
 export { default as ComboBox } from './combobox.svelte';
 export { default as AuthorCard } from './author-card.svelte';
+export { default as MetaTags } from './metatags.svelte';
+export { default as BlogMetaTags } from './blog-metatags.svelte';
+export { default as Stickybar } from './stickybar.svelte';
