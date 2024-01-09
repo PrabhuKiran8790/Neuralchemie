@@ -3,10 +3,12 @@
 	import { config } from '$lib/config';
 	import { MetaTags } from 'svelte-meta-tags';
 
+	const OG_IMAGE = 'https://codedojo.vercel.app/OG.png';
+
 	const og = {
 		images: [
 			{
-				image: 'https://codedojo.vercel.app/OG.png',
+				url: OG_IMAGE,
 				width: 800,
 				height: 600,
 				alt: config.name
@@ -16,8 +18,7 @@
 		twitter: {
 			handle: '@prabhukirantwt',
 			cardType: 'summary_large_image',
-			image: 'https://codedojo.vercel.app/OG.png',
-
+			image: OG_IMAGE,
 			imageAlt: config.name
 		}
 	};
@@ -47,7 +48,7 @@
 				cardType: 'summary_large_image',
 				title: `${og.siteName} | ${meta.ogTitle || meta.title}`,
 				description: meta.ogDescription || meta.description,
-				image: 'https://codedojo.vercel.app/OG.png',
+				image: OG_IMAGE,
 				imageAlt: '${og.siteName}'
 			}
 		};
