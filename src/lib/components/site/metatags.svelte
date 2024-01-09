@@ -6,7 +6,7 @@
 	const og = {
 		images: [
 			{
-				url: 'https://prabhukirankonda.vercel.app/OG.png',
+				image: 'https://codedojo.vercel.app/OG.png',
 				width: 800,
 				height: 600,
 				alt: config.name
@@ -16,7 +16,8 @@
 		twitter: {
 			handle: '@prabhukirantwt',
 			cardType: 'summary_large_image',
-			image: 'https://prabhukirankonda.vercel.app/OG.png',
+			image: 'https://codedojo.vercel.app/OG.png',
+
 			imageAlt: config.name
 		}
 	};
