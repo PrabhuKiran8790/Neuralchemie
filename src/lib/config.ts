@@ -28,7 +28,7 @@ interface Config {
 export interface Author_ {
 	name: string;
 	path: string;
-	website: string;
+	website?: string;
 	aliases: string[];
 	bio: string;
 	tagline: string;
@@ -78,7 +78,7 @@ export const config: Config = {
 		{
 			name: 'Shayaan Hussain',
 			path: 'shayaan-hussain',
-			website: 'https://shayaanhussain.vercel.app',
+			// website: 'https://shayaanhussain.vercel.app',
 			aliases: ['Shayaan'],
 			bio: `
 			As a highly motivated and dedicated programmer with exceptional programming skills, I have a strong passion for developing innovative software solutions. I possess a track record in coding efficient solutions and debugging complex software issues and am eager to learn new technologies to continually elevate my knowledge and skills. I am excited to contribute my fresh perspectives and creativity by taking on a challenging role and making valuable impact in developing groundbreaking solutions.
@@ -104,7 +104,7 @@ export const config: Config = {
 		{
 			name: 'Mohammed Raamizuddin',
 			path: 'mohammed-raamizuddin',
-			website: 'https://raamizuddin.vercel.app',
+			// website: 'https://raamizuddin.vercel.app',
 			aliases: ['Raamiz'],
 			bio: `
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit debitis ex dolorum, dolor, quae odio quis id amet iste assumenda nihil ipsa vitae consectetur odit voluptates eligendi. Nulla, nobis officia?

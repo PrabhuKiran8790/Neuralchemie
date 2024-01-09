@@ -51,12 +51,17 @@
 	{/if}
 	<div class="flex h-full flex-col justify-between gap-4 p-2.5 pt-0">
 		<div class={cn('flex flex-col justify-between gap-2', keepImage ? '' : 'pt-2')}>
-			{#if likesCount > 0}
-				<div class="-mb-2 flex items-center gap-1 text-xs">
-					<Heart class="size-3 text-gray-400" weight="fill" />
-					<h1>{likesCount}</h1>
-				</div>
-			{/if}
+			<div class="flex items-center text-xs gap-4 -mb-2">
+				<h1 class="italic text-muted-foreground">
+					# {post.order}
+				</h1>
+				{#if likesCount > 0}
+					<div class="flex items-center gap-1 text-xs">
+						<Heart class="size-3 text-gray-400" weight="fill" />
+						<h1>{likesCount}</h1>
+					</div>
+				{/if}
+			</div>
 			<h1 class={`text-lg font-semibold ${hover ? 'underline underline-offset-4' : ''}`}>
 				{post.title}
 			</h1>

@@ -10,6 +10,7 @@ tags:
     - Deep Learning
     - Auto Encoders
 draft: false
+order: 1
 ---
 
 Imagine having over thousands of input features in your dataset and you’ve to train them all..well, sometimes we wish we could compress the dataset to less number of features. Right? well, we can do that using a special type of Neural Network called Auto-encoders.

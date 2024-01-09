@@ -9,6 +9,7 @@ export interface BasePost {
 	image: string | string[];
 	draft: boolean;
 	author: string | string[];
+	order: number;
 }
 
 export interface Post extends BasePost {}

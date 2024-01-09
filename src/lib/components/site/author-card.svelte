@@ -30,18 +30,20 @@
 		/> -->
 	</div>
 	<div class="flex flex-col gap-1 px-3">
-		<div class="relative -mt-12 flex flex-row justify-between">
+		<div class="relative -mt-12 flex justify-between">
 			<Avatar.Root class="size-24 ring-2 ring-white dark:ring-black">
 				<Avatar.Image src={`${author?.social.GitHub.url}.png`} alt={`@${author?.path}`} />
 				<Avatar.Fallback>
 					{`${author?.name.split(' ')[0].charAt(0)} ${author?.name.split(' ')[1].charAt(0)}`}
 				</Avatar.Fallback>
 			</Avatar.Root>
-			<div class="absolute bottom-3 right-0">
-				<Button class="h-7 border-muted-foreground" variant="outline" href={author.website}
-					>Visit Website</Button
-				>
-			</div>
+			{#if author.website}
+				<div class="absolute bottom-3 right-0">
+					<Button class="h-7 border-muted-foreground" variant="outline" href={author.website}
+						>Visit Website</Button
+					>
+				</div>
+			{/if}
 		</div>
 		<a class="block -space-y-1" href={`/authors/${author.path}`}>
 			<h1 class="text-2xl font-bold">{author.name}</h1>
