@@ -8,12 +8,19 @@
 	export let hover: boolean = true;
 	let className: string | undefined = undefined;
 	export { className as class };
+
+	let authors: string[];
+
+	// shuffle authors if post.author is an array
+	if (Array.isArray(post.author)) {
+		authors = post.author.sort(() => Math.random() - 0.5);
+	}
 </script>
 
 {#if hover}
 	{#if Array.isArray(post.author)}
 		<div class={cn('flex flex-wrap items-center gap-4', className)}>
-			{#each post.author as author_}
+			{#each authors as author_}
 				{@const author = getAuthorDetailsFromAlias(author_)}
 				<Author {author} {hover} />
 			{/each}
@@ -27,7 +34,7 @@
 	<Author {author} />
 {:else if Array.isArray(post.author)}
 	<div class="flex flex-wrap items-center gap-2">
-		{#each post.author as author_}
+		{#each authors as author_}
 			{@const author = getAuthorDetailsFromAlias(author_)}
 			<Author {author} hover={false} />
 		{/each}

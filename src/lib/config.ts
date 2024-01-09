@@ -34,15 +34,16 @@ export interface Author_ {
 	tagline: string;
 	social: SocialIcons;
 	cover?: string;
+	coverStyles?: string;
 }
 
 export const config: Config = {
-	name: 'Name',
+	name: 'Neuralchemie',
 	routes: [
 		...routes.map((route) => ({
 			name: route,
 			path: `/${route.toLowerCase()}`
-		})),
+		}))
 		// {
 		// 	name: 'GitHub',
 		// 	path: 'https://www.github.com/PrabhuKiran8790'
@@ -97,8 +98,8 @@ export const config: Config = {
 					url: 'mailto:shayaan.hussain2001@gmail.com'
 				}
 			},
-			cover:
-				'https://images.pexels.com/photos/2397652/pexels-photo-2397652.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+			cover: '/shayaan_bg.jpeg',
+			coverStyles: 'bg-[center_calc(50%_+_20px)] -scale-x-100'
 		},
 		{
 			name: 'Mohammed Raamizuddin',
@@ -108,7 +109,7 @@ export const config: Config = {
 			bio: `
 			Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit debitis ex dolorum, dolor, quae odio quis id amet iste assumenda nihil ipsa vitae consectetur odit voluptates eligendi. Nulla, nobis officia?
 			`,
-			tagline: 'lorem ipsum dolor sit amet consectetur adipisicing elit.',
+			tagline: 'Debugging the path to success',
 			social: {
 				GitHub: {
 					url: 'https://github.com/iiamraamiz'
@@ -123,8 +124,8 @@ export const config: Config = {
 					url: 'mailto:raamiz2510@gmail.com'
 				}
 			},
-			cover:
-				'https://images.pexels.com/photos/1312488/pexels-photo-1312488.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+			cover: '/raamiz_bg.jpeg',
+			coverStyles: 'bg-[center_calc(50%_-_20px)]'
 		}
 	]
 };

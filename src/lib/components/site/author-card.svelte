@@ -19,12 +19,15 @@
 </script>
 
 <div class={cn('flex max-w-md flex-col rounded-xl border border-border p-2', className)}>
-	<div class="h-24">
-		<img
+	<div
+		class={cn('h-24 rounded-t-lg bg-cover', author.coverStyles)}
+		style="background-image: url({author.cover});"
+	>
+		<!-- <img
 			src={author.cover}
 			alt={`Cover Image - ${author.name}`}
 			class="h-full w-full rounded-t-lg object-cover"
-		/>
+		/> -->
 	</div>
 	<div class="flex flex-col gap-1 px-3">
 		<div class="relative -mt-12 flex flex-row justify-between">
@@ -142,3 +145,6 @@
 		{/if}
 	</div>
 </div>
+
+<style lang="postcss">
+</style>
