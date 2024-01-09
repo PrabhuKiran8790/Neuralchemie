@@ -46,7 +46,7 @@
 				cardType: 'summary_large_image',
 				title: `${og.siteName} | ${meta.ogTitle || meta.title}`,
 				description: meta.ogDescription || meta.description,
-				image: 'https://prabhukirankonda.vercel.app/og.png',
+				image: 'https://codedojo.vercel.app/OG.png',
 				imageAlt: '${og.siteName}'
 			}
 		};
