@@ -6,7 +6,7 @@
 	const og = {
 		images: [
 			{
-				url: 'https://prabhukirankonda.vercel.app/og.png',
+				url: 'https://prabhukirankonda.vercel.app/OG.png',
 				width: 800,
 				height: 600,
 				alt: config.name
@@ -16,7 +16,7 @@
 		twitter: {
 			handle: '@prabhukirantwt',
 			cardType: 'summary_large_image',
-			image: 'https://prabhukirankonda.vercel.app/og.png',
+			image: 'https://prabhukirankonda.vercel.app/OG.png',
 			imageAlt: config.name
 		}
 	};
@@ -56,7 +56,7 @@
 		if ($page.url.pathname == '/') {
 			setPageMeta({
 				title: 'Home',
-				description: 'Teaching AI in Public'
+				description: 'Craft your understanding of AI'
 			});
 		} else if ($page.url.pathname == '/blog') {
 			setPageMeta({
