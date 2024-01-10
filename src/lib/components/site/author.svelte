@@ -42,18 +42,20 @@
 							>
 						</div>
 						<div>
-							<a
-								href={author?.website}
-								class={cn(
-									buttonVariants({
-										variant: 'outline'
-									}),
-									'flex size-8 items-center gap-1 p-0'
-								)}
-								target="_blank"
-							>
-								<Planet class="size-5" />
-							</a>
+							{#if author?.website}
+								<a
+									href={author?.website}
+									class={cn(
+										buttonVariants({
+											variant: 'outline'
+										}),
+										'flex size-8 items-center gap-1 p-0'
+									)}
+									target="_blank"
+								>
+									<Planet class="size-5" />
+								</a>
+							{/if}
 						</div>
 					</div>
 					<p>{author?.tagline}</p>
