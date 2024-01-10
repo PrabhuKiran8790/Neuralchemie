@@ -9,7 +9,7 @@
 <div class="mt-4 space-y-7 p-1 md:container md:mt-8 md:p-4">
 	<div class="flex flex-col items-center justify-center gap-5">
 		<div>
-			<h1 class="text-4xl font-bold tracking-widest">
+			<h1 class="text-4xl font-bold tracking-widest text-center">
 				{data.currentTag}
 			</h1>
 		</div>
