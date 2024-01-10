@@ -1,5 +1,5 @@
 ---
-title: Introduction to AI, its history, basic concepts, and applications.
+title: Introduction to AI and its Applications.
 description: Explore the world of AI with us! Learn about its history, basic ideas, and where it's used.
 date: '2024-01-10'
 author:
