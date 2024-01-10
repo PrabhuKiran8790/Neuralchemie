@@ -19,7 +19,7 @@
 
 {#if hover}
 	{#if Array.isArray(post.author)}
-		<div class={cn('flex flex-wrap items-center justify-center gap-4', className)}>
+		<div class={cn('flex flex-wrap items-center gap-4', className)}>
 			{#each authors as author_}
 				{@const author = getAuthorDetailsFromAlias(author_)}
 				<Author {author} {hover} />
@@ -33,7 +33,7 @@
 	{@const author = getAuthorDetailsFromAlias(post.author)}
 	<Author {author} />
 {:else if Array.isArray(post.author)}
-	<div class="flex flex-wrap items-center justify-center gap-2">
+	<div class="flex flex-wrap items-center gap-2">
 		{#each authors as author_}
 			{@const author = getAuthorDetailsFromAlias(author_)}
 			<Author {author} hover={false} />

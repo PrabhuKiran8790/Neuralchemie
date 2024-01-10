@@ -32,7 +32,7 @@ Both ML and DL require careful selection and tuning of algorithms based on the s
 
 ![Subsets of AI](/posts/introduction-to-ai-ml/subset.png)
 
-## Machine learning is further divided as follows:
+## Machine Learning Paradigms
 
 - **Supervised Learning:** This involves training of an ML model with labelled datasets, or datasets where each datapoint has corresponding label indicating its desired output.
     - **Regression:** Regression is a subset of supervised learning which involves usage of a statistical method to predict a continuous value which is dependent on one or more independent variables. For example, banks use regression to predict loan defaults, assess credit-worthiness etc.
@@ -43,7 +43,7 @@ Both ML and DL require careful selection and tuning of algorithms based on the s
     - **Dimensionality Reduction:** It refers to the process of transforming high-dimensional data into lower-dimensional data while preserving information. This results in compression and reduces computational complexity in training ML models. It also helps in visualizing the data better as complex data is hard to visualize.
 - **Reinforcement Learning:** Reinforcement learning is like a trial and error approach. It involves a framework that consists of an agent, environment, action, state, reward and policy. The agent interacts with the environment, making decisions and taking actions. The agents perception of the environment is the state. The agent receives rewards for desirable actions and penalties for undesirable ones. Policy represents the agent’s behavior strategy.
 
-## Applications of AI:
+## Applications of AI
 
 AI is used in various applications. Some of the most popular ones are:
 

@@ -59,7 +59,7 @@
 			<p class="text-xs font-semibold md:text-sm">{formatDate(meta.date, 'long')}</p>
 		</div>
 	</div>
-	<div>
+	<div class="px-4">
 		<AuthorWrapper post={data.meta} />
 	</div>
 </div>

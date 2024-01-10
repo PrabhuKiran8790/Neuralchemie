@@ -57,16 +57,18 @@
 				<div class="flex items-center justify-start gap-2">
 					<a href="/" class="flex items-center justify-center gap-2">
 						<NN class="size-10" />
-						<!-- <p class="text-lg uppercase tracking-widest">{config.name}</p> -->
+						{#if $page.url.pathname === '/'}
+							<p class="text-base uppercase tracking-widest">{config.name}</p>
+						{/if}
 					</a>
-					<!-- {#if getNameFromPath($page.url.pathname)}
+					{#if getNameFromPath($page.url.pathname)}
 						<div class="flex items-center justify-center gap-3">
 							<div class="h-5 w-[1px] bg-primary"></div>
-							<p class="text-xs tracking-wider">
+							<p class="text-xs tracking-wider -mb-1">
 								{getNameFromPath($page.url.pathname)}
 							</p>
 						</div>
-					{/if} -->
+					{/if}
 				</div>
 			</div>
 			<div class="flex items-center justify-center">
