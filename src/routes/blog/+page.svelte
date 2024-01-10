@@ -4,6 +4,7 @@
 	import type { PageData } from './$types';
 
 	export let data: PageData;
+	const likes = data.likes;
 </script>
 
 <div class="max-w-7xl md:mx-auto md:mb-20 md:mt-12">
@@ -20,7 +21,13 @@
 	<div class="mt-7 gap-x-[5px]">
 		<Masonry gridGap={'0.75rem'} items={data.posts} stretchFirst={false} reset>
 			{#each data.posts as post}
-				<Blogcard {post} shallow={true} keepImage={true} n={data.posts.length}/>
+				<Blogcard
+					{post}
+					shallow={true}
+					keepImage={true}
+					n={data.posts.length}
+					likesCount={likes.find((obj) => obj.slug === post.slug)?.likes}
+				/>
 			{/each}
 		</Masonry>
 	</div>
