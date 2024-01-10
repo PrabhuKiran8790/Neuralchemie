@@ -14,7 +14,7 @@ draft: false
 order: 1
 ---
 
-Greetings fellow Readers and AI Enthusiasts! Today marks the start of our “100 days of AI” series where we dive deep into the realm of Artificial Intelligence.
+Greetings fellow Readers and AI Enthusiasts! Today marks the start of our **100 days of AI** series where we dive deep into the realm of Artificial Intelligence.
 
 ## Understanding AI
 
@@ -30,7 +30,7 @@ AI, or Artificial Intelligence, is powered by a set of algorithms and methodolog
 
 Both ML and DL require careful selection and tuning of algorithms based on the specific requirements of the task at hand.
 
-![subset](/posts/dimensionality-reduction-auto-encoders/subset.png)
+![Subsets of AI](/posts/introduction-to-ai-ml/subset.png)
 
 ## Machine learning is further divided as follows:
 
