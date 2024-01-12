@@ -6,8 +6,6 @@
 	import { AuthorWrapper, Tag } from '.';
 
 	export let post: Post;
-	let className: string = 'md:max-w-md';
-	export { className as class };
 	export let keepImage: boolean = true;
 	export let tagClass: string = '';
 	export let shallow: boolean = false;
@@ -19,8 +17,7 @@
 <a
 	class={cn(
 		'no-highlight block rounded-xl border-2 pb-0 hover:border-primary',
-		n === 1 ? 'md:max-w-md' : 'w-full',
-		className
+		n === 1 ? 'md:max-w-md' : 'w-full'
 	)}
 	on:mouseenter={() => (hover = true)}
 	on:mouseleave={() => (hover = false)}
@@ -51,7 +48,7 @@
 	{/if}
 	<div class="flex h-full flex-col justify-between gap-4 p-2.5 pt-0">
 		<div class={cn('flex flex-col justify-between gap-2', keepImage ? '' : 'pt-2')}>
-			<div class="flex items-center text-xs gap-4 -mb-2">
+			<div class="-mb-2 flex items-center gap-4 text-xs">
 				<h1 class="italic text-muted-foreground">
 					# {post.order}
 				</h1>
