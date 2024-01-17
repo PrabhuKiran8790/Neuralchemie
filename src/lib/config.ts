@@ -156,6 +156,6 @@ export function getIconFromName(name: string) {
 
 export const githubConfig = {
 	username: 'PrabhuKiran8790',
-	repo: 'codedojo',
+	repo: 'Neuralchemie',
 	branch: 'main'
 };

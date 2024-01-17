@@ -8,7 +8,7 @@
 	export let repoId: string;
 	export let category: string = undefined;
 	export let categoryId: string = undefined;
-	export let mapping: Mapping = 'pathname';
+	export let mapping: Mapping = 'og:title';
 	export let term: string = undefined;
 	export let strict: BooleanString = '0';
 	export let reactionsEnabled: BooleanString = '1';
