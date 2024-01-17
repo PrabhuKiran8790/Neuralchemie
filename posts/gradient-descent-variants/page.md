@@ -22,7 +22,7 @@ Each variant has its own benefits and produce their own results which are not ne
 
 To study each of these variants, we will use the following data:
 
-<table style="text-align: center;">
+<!-- <table style="text-align: center;">
   <thead>
     <tr>
       <th style="border: 2px solid #bbb; width: 50px"><b>X</b></th>
@@ -48,30 +48,37 @@ To study each of these variants, we will use the following data:
     </tr>
   </tbody>
   <hr>
-</table>
+</table> -->
+
+ X | Y |
+| --- | --- |
+| 1 | 8 |
+| 6 | 33 |
+| 9 | 48 |
+| 5 | 28 |
 
 To achieve y from x, the equation that will be used is:
 
 ```math
-y = m * x + b
+y = mx + b
 ```
 
 We have to optimize m and b to achieve the right ‘y’ value. For this purpose, we find the derivative equation of the cost function i.e. MSE in this case.
 
 ```math
-MSE = (y - (m * x + b)) ^ 2
+MSE = (y - (mx + b)) ^ 2
 ```
 
-Differentiate MSE with respect to m:
+Differentiate MSE with respect to $$m$$:
 
 ```math
-\frac{dMSE}{dm} = -1 * (y - (m * x + b)) * x
+\frac{d}{dm}MSE = -1(y - (mx + b))x
 ```
 
-Differentiate MSE with respect to b:
+Differentiate MSE with respect to $$b$$:
 
 ```math
-\frac{dMSE}{db} = -1 * (y - (m * x + b))
+\frac{d}{db}MSE = -1(y - (mx + b))
 ```
 
 Now let us discuss each variant and their implementation for the above data.
