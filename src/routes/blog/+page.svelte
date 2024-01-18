@@ -19,7 +19,8 @@
 	</div>
 
 	<div class="mt-7 gap-x-[5px]">
-		<Masonry gridGap={'0.75rem'} items={data.posts} stretchFirst={false} reset>
+		<!-- items={data.posts} prop removed, let's see if this is what causing the issue -->
+		<Masonry gridGap={'0.75rem'} stretchFirst={false} reset>
 			{#each data.posts as post}
 				<Blogcard
 					{post}
@@ -30,5 +31,19 @@
 				/>
 			{/each}
 		</Masonry>
+		<!-- if masonry is not working as expected, use this -->
+		<!-- <div class="grid gap-3 p-3 md:grid-cols-2 lg:grid-cols-3">
+			{#each data.posts as post}
+				<div>
+					<Blogcard
+						{post}
+						shallow={true}
+						keepImage={true}
+						n={data.posts.length}
+						likesCount={likes.find((obj) => obj.slug === post.slug)?.likes}
+					/>
+				</div>
+			{/each}
+		</div> -->
 	</div>
 </div>

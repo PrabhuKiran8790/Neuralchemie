@@ -15,7 +15,7 @@
 	</div>
 
 	<div class="mt-7 max-w-7xl gap-x-[5px] md:mx-auto">
-		<Masonry gridGap={'0.75rem'} items={data.posts} stretchFirst={false} reset>
+		<Masonry gridGap={'0.75rem'}  stretchFirst={false} reset>
 			{#each data.posts as post}
 				<Blogcard
 					{post}
