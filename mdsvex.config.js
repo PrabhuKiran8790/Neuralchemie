@@ -24,6 +24,28 @@ const correct_hast_tree = () => (tree) => {
 	});
 };
 
+const inlineKatexUsingInlineCode = () => (tree) => { 
+	visit(tree, 'inlineCode', (node) => {
+		if (node.value.endsWith('{:eq}')) {
+			node.value = node.value.replace('{:eq}', '')
+			const str = katex.renderToString(node.value, {
+				displayMode: false,
+				leqno: false,
+				fleqn: false,
+				throwOnError: true,
+				errorColor: '#cc0000',
+				strict: 'warn',
+				output: 'htmlAndMathml',
+				trust: false,
+				macros: { '\\f': '#1f(#2)' }
+			});
+
+			node.type = 'raw';
+			node.value = '<span class="text-base mx-1">{@html `' + str + '`}</span>';
+		} 
+	})
+}
+
 const katex_blocks = () => (tree) => {
 	visit(tree, 'code', (node) => {
 		if (node.lang === 'math') {
@@ -193,7 +215,7 @@ export const mdsvexOptions = {
 	// highlight: {
 	// 	highlighter: highlightCode
 	// },
-	remarkPlugins: [katex_blocks, katex_inline, replaceQuotes],
+	remarkPlugins: [katex_blocks, katex_inline, inlineKatexUsingInlineCode, replaceQuotes],
 	rehypePlugins: [
 		rehypeCustomComponents,
 		rehypeComponentPreToPre,
