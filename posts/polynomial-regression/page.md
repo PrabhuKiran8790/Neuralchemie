@@ -10,7 +10,7 @@ tags:
     - Machine Learning
     - Regression
 draft: false
-order: 6
+order: 6
 ---
 
 # What is Polynomial Regression?
