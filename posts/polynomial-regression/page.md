@@ -48,30 +48,30 @@ y = \beta_0 + \beta_1 x + \varepsilon
 ![Linear Regression](/posts/polynomial-regression/LinearRegression.webp)
 
 - **Higher degrees ($$n$$ > 1):** Allow for modeling curves, such as:
-    - Quadratic ($$n$$ = 2): This is an extension of simple linear regression where the degree of the equation is 2 and we find the equation values of the parabola that best fits a set of data. The parabola will be either concave down or concave up.
+- Quadratic ($$n$$ = 2): This is an extension of simple linear regression where the degree of the equation is 2 and we find the equation values of the parabola that best fits a set of data. The parabola will be either concave down or concave up.
+
+```math
+y = \beta_0 + \beta_1 x + \beta_2 x^2 + \varepsilon
+```
+
+![Quadratic Polynomial Regression](/posts/polynomial-regression/Quadratic.png)
+
+- **Cubic ($$n$$ = 3):** This regression technique has the degree of equation as 3 and we find the equation values of the shaped curve that best fits the given data. The graph is usually in the shape of "S" which will be passing through or near to most of the data points.
+
+```math
+y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \varepsilon
+```
+
+![Cubic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg3.svg)
+
+- **Quartic ($$n$$ = 4):** This regression technique has the degree of equation as 4 which is the highest order polynomial equation and we find the equation of the complex shaped curve which passes through all the scattered data points. The graph is usually in the shape of "W" which may be inverted at times.
     
-    ```math
-    y = \beta_0 + \beta_1 x + \beta_2 x^2 + \varepsilon
-    ```
+```math
+y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \beta_4 x^4 + \varepsilon
+```
     
-    ![Quadratic Polynomial Regression](/posts/polynomial-regression/Quadratic.png)
-    
-    - **Cubic ($$n$$ = 3):** This regression technique has the degree of equation as 3 and we find the equation values of the shaped curve that best fits the given data. The graph is usually in the shape of "S" which will be passing through or near to most of the data points.
-    
-    ```math
-    y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \varepsilon
-    ```
-    
-    ![Cubic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg3.svg)
-    
-    - **Quartic ($$n$$ = 4):** This regression technique has the degree of equation as 4 which is the highest order polynomial equation and we find the equation of the complex shaped curve which passes through all the scattered data points. The graph is usually in the shape of "W" which may be inverted at times.
-        
-    ```math
-    y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \beta_4 x^4 + \varepsilon
-    ```
-        
-    
-    ![Quartic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg4.png)
+
+![Quartic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg4.png)
     
 
 Each of the above mentioned type is used according to the pattern the data points show when plotted on a scatter plot. The error will be reduced and the predictions will be accurate is the proper polynomial degree regression is used.
