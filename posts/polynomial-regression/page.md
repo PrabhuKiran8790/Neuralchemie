@@ -1,9 +1,9 @@
 ---
 title: "Bending the Curve: Mastering the Art of Polynomial Regression"
-description: Learn about polynomial regression, its types and how to implement them using Python.
+description: "Learn about polynomial regression, its types and how to implement them using Python."
 date: '2024-01-20'
 image: 
-    - /posts/polynomial-regression/thumbnail.jpg
+    - "/posts/polynomial-regression/thumbnail.jpg"
 author:
     - Raamiz
 tags: 
@@ -27,11 +27,11 @@ Where:
 
 - $$y$$ : The dependent variable (predicted value)
 - $$x$$ : The independent variable
-- $$\beta_0, \beta_1 , \beta_2 , ..., \beta_n$$ : Coefficients representing the influence of each power of x
+- $$\beta_0 $$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$ : Coefficients representing the influence of each power of x
 - $$n$$ : Degree of the polynomial (highest power of x)
 - $$\varepsilon$$ : Random error term
 
-The values of \beta_0, \beta_1 , \beta_2 , ..., \beta_n  and  $$\varepsilon$$ are determined during the training phase of the model. We Use the least squares method to estimate the coefficients \beta_0, \beta_1 , \beta_2 , ..., \beta_n  using the given variables in the data which are $$x$$ and $$y$$ that minimize the sum of squared residuals (differences between predicted and actual y values).
+The values of $$\beta_0$$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$  and  $$\varepsilon$$ are determined during the training phase of the model. We Use the least squares method to estimate the coefficients $$\beta_0$$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$  using the given variables in the data which are $$x$$ and $$y$$ that minimize the sum of squared residuals (differences between predicted and actual y values).
 
 The value of $$n$$ determines the degree and shape of the curve, i.e., whether its a straight line, parabolic, or more complex shapes. The random error term ($$\varepsilon$$) in the polynomial regression equation represents the unexplained portion of the dependent variable ($$y$$). It accounts for all the factors influencing $$y$$ that are not included in the polynomial model itself. In essence, it reflects the inherent noise and variability in the data that cannot be captured by the fitted curve.
 
