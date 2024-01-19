@@ -3,7 +3,8 @@ title: "Bending the Curve: Mastering the Art of Polynomial Regression"
 description: "Learn about polynomial regression, its types and how to implement them using Python."
 date: '2024-01-20'
 image: 
-    - "/posts/polynomial-regression/thumbnail.jpg"
+    - '/posts/polynomial-regression/thumbnail.jpg'
+    - '/posts/polynomial-regression/thumbnail.jpg'
 author:
     - Raamiz
 tags: 
@@ -13,7 +14,7 @@ draft: false
 order: 6
 ---
 
-# What is Polynomial Regression?
+## What is Polynomial Regression?
 
 Polynomial regression is a statistical method that extends linear regression to model nonlinear relationships between variables. It achieves this by fitting a polynomial equation, rather than a straight line, to the data. It fits curves to data by raising the independent variable to various powers, capturing nonlinear relationships between the independent and dependent variables. 
 
@@ -35,7 +36,7 @@ The values of $$\beta_0$$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$  and  $$
 
 The value of $$n$$ determines the degree and shape of the curve, i.e., whether its a straight line, parabolic, or more complex shapes. The random error term ($$\varepsilon$$) in the polynomial regression equation represents the unexplained portion of the dependent variable ($$y$$). It accounts for all the factors influencing $$y$$ that are not included in the polynomial model itself. In essence, it reflects the inherent noise and variability in the data that cannot be captured by the fitted curve.
 
-# Types of Polynomial Regression
+## Types of Polynomial Regression
 
 we can broadly classify the types of polynomial regression based on degree of the polynomial ($$n$$) :
 
@@ -62,7 +63,7 @@ y = \beta_0 + \beta_1 x + \beta_2 x^2 + \varepsilon
 y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \varepsilon
 ```
 
-![Cubic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg3.svg)
+![Cubic Polynomial Regression](/posts/polynomial-regression/Polynomialdeg3.png)
 
 - **Quartic ($$n$$ = 4):** This regression technique has the degree of equation as 4 which is the highest order polynomial equation and we find the equation of the complex shaped curve which passes through all the scattered data points. The graph is usually in the shape of "W" which may be inverted at times.
     
@@ -76,11 +77,11 @@ y = \beta_0 + \beta_1 x + \beta_2 x^2 + \beta_3 x^3 + \beta_4 x^4 + \varepsilon
 
 Each of the above mentioned type is used according to the pattern the data points show when plotted on a scatter plot. The error will be reduced and the predictions will be accurate is the proper polynomial degree regression is used.
 
-# Math behind Polynomial Regression
+## Math behind Polynomial Regression
 
 The mathematics involved in polynomial regression remains pretty much same as the linear regression one, where we calculate the sum of mean squared error for all the data points.
 
-## Hypothesis Function:
+### Hypothesis Function:
 
 In polynomial regression, the hypothesis function is no longer a simple linear equation. Instead, it's a polynomial of a chosen degree $$n$$. Here's the general form:
 
@@ -94,7 +95,7 @@ where:
 - $$\theta_i$$ are the coefficients of the polynomial, to be determined through the learning process.
 - $$n$$ is the degree of the polynomial.
 
-## Cost Function:
+### Cost Function:
 
 Similar to linear regression, we use a cost function to measure how well the hypothesis function fits the training data. The most common cost function in polynomial regression is still the mean squared error (MSE) $$[Error = (predicted - actual)^2]$$ :
 
@@ -109,9 +110,9 @@ where:
 - $$h(x_i)$$ is the predicted value for the $i$-th data point.
 - $$y_i$$ is the actual value of the $$i$$-th data point.
 
-## Gradient Descent:
+### Gradient Descent:
 
-We use gradient descent to minimize the cost function and find the optimal values for the polynomial coefficients ($$`\theta_j`$$). The update rule for each coefficient is similar to linear regression, but with additional terms due to the higher degree of the polynomial:
+We use gradient descent to minimize the cost function and find the optimal values for the polynomial coefficients ($$\theta_j$$). The update rule for each coefficient is similar to linear regression, but with additional terms due to the higher degree of the polynomial:
 
 ```math
 \theta_j = \theta_j - \alpha  (\frac{1}{m})  \sum_{i=0}^{m} (h(x_i) - y_i)  x_i^{(j-1)}
@@ -124,7 +125,7 @@ where:
 
 We repeat the above process until the cost converges to a minimum. Once we have the optimized parameters $$\theta_j$$, we use the hypothesis function to make predictions for upcoming values.
 
-# Python Implementation
+## Python Implementation
 
 Let’s import the required python modules:
 
@@ -138,7 +139,7 @@ import imageio
 import os
 ```
 
-## Quadratic polynomial regression using BGD
+### Quadratic polynomial regression using BGD
 
 We will be implementing the quadratic polynomial regression for the equation $$y=2x^2+5x-3$$ using the below defined functions:
 
@@ -224,7 +225,7 @@ Root Mean Squared Error (RMSE): 2.848372771069048
 R-squared (R2): 0.8989093949486041
 ```
 
-## Cubic Polynomial Regression
+### Cubic Polynomial Regression
 
 We will be implementing the quadratic polynomial regression for the equation $$y=2x^3+5x^2-3$$ using the below defined functions:
 
