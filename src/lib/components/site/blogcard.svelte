@@ -28,20 +28,24 @@
 		{#if post.image}
 			<div class="p-2">
 				{#if typeof post.image === 'string'}
-					<img src={post.image} alt={post.title} class="w-fit rounded-md" loading="lazy" />
+					<div class="h-56 w-full">
+						<img src={post.image} alt={post.title} class="h-56 w-full rounded-md" loading="lazy" />
+					</div>
 				{:else if Array.isArray(post.image)}
-					<img
-						src={post.image[0]}
-						alt={post.title}
-						class="h-52 w-full rounded-md dark:hidden"
-						loading="lazy"
-					/>
-					<img
-						src={post.image[1]}
-						alt={post.title}
-						class="hidden h-52 w-full rounded-md dark:block"
-						loading="lazy"
-					/>
+					<div class="h-56 w-full">
+						<img
+							src={post.image[0]}
+							alt={post.title}
+							class="h-56 w-full rounded-md dark:hidden"
+							loading="lazy"
+						/>
+						<img
+							src={post.image[1]}
+							alt={post.title}
+							class="hidden h-56 w-full rounded-md dark:block"
+							loading="lazy"
+						/>
+					</div>
 				{/if}
 			</div>
 		{/if}

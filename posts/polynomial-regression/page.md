@@ -2,9 +2,7 @@
 title: "Bending the Curve: Mastering the Art of Polynomial Regression"
 description: "Learn about polynomial regression, its types and how to implement them using Python."
 date: '2024-01-20'
-image: 
-    - '/posts/polynomial-regression/thumbnail.jpg'
-    - '/posts/polynomial-regression/thumbnail.jpg'
+image: '/posts/polynomial-regression/thumbnail.jpg'
 author:
     - Raamiz
 tags: 
@@ -28,7 +26,7 @@ Where:
 
 - $$y$$ : The dependent variable (predicted value)
 - $$x$$ : The independent variable
-- $$\beta_0 $$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$ : Coefficients representing the influence of each power of x
+- $$\beta_0$$, $$\beta_1$$ , $$\beta_2$$ , ..., $$\beta_n$$ : Coefficients representing the influence of each power of x
 - $$n$$ : Degree of the polynomial (highest power of x)
 - $$\varepsilon$$ : Random error term
 
@@ -145,7 +143,6 @@ We will be implementing the quadratic polynomial regression for the equation $$y
 
 ```python
 def predict_quadratic(x, theta):
-
     return theta[0] + theta[1] * x + theta[2] * x**2
 
 def quadratic_regression_gradient_descent(x, y, learning_rate=0.01, num_iterations=100):

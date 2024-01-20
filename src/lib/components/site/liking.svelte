@@ -70,7 +70,7 @@
 			<button
 				on:click={addLike}
 				disabled={loading}
-				class="flex h-10 w-10 items-center justify-center gap-2 rounded-full p-1"
+				class="flex h-10 w-10 cursor-pointer items-center justify-center gap-2 rounded-full p-1"
 			>
 				{#if !loading}
 					<Heart class={cn('h-5 w-5', liked && 'text-red-500')} weight={liked ? 'fill' : 'bold'} />
