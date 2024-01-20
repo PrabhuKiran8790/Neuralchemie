@@ -8,8 +8,8 @@ image:
 author:
     - Prabhu
 tags: 
+    - Regression
     - Machine Learning
-    - Linear Regression
 draft: false
 order: 5
 ---
