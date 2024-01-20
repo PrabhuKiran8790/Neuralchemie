@@ -1,13 +1,12 @@
 <script lang="ts">
 	import { tagToSlug } from '$lib/posts';
-	import { Check, ChevronsUpDown, Tag } from 'lucide-svelte';
 	import * as Command from '$lib/components/ui/command';
 	import * as Popover from '$lib/components/ui/popover';
 	import { Button } from '$lib/components/ui/button';
-	import { cn } from '$lib/utils';
 	import { tick } from 'svelte';
 	import { goto } from '$app/navigation';
 	import type { Post } from '$lib/types';
+	import { CaretUpDown, TagIcon } from './icons';
 
 	export let tags: string[] = [];
 	export let currentTag: string;
@@ -50,10 +49,10 @@
 			class="no-highlight w-[350px] justify-between md:w-[300px]"
 		>
 			<div class="flex items-center gap-1">
-				<Tag class="mr-1 h-3 w-3" />
+				<TagIcon class="mr-1 h-3 w-3" />
 				<span class="rounded-md bg-zinc-200 px-2 dark:bg-zinc-700">{currentTag}</span>
 			</div>
-			<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+			<CaretUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="w-[350px] p-0 md:w-[300px]">

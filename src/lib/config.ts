@@ -1,13 +1,12 @@
-import { At, GithubLogo, LinkedinLogo } from 'phosphor-svelte';
-import { X } from './components/site/icons';
+import { At, Github, LinkedIn, X } from './components/site/icons';
 import type { ComponentType, SvelteComponent } from 'svelte';
 
 const routes = ['Blog', 'Tags', 'Authors'];
 
 const icons: Record<string, ComponentType<SvelteComponent>> = {
-	GitHub: GithubLogo,
+	GitHub: Github,
 	Twitter: X,
-	Linkedin: LinkedinLogo,
+	Linkedin: LinkedIn,
 	Mail: At
 };
 

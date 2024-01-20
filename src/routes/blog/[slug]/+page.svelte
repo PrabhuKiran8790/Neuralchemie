@@ -8,9 +8,9 @@
 	import Separator from '$lib/components/ui/separator/separator.svelte';
 	import { githubConfig } from '$lib/config.js';
 	import { localToGithubURL } from '$lib/utils';
-	import { Github } from 'lucide-svelte';
 	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
+	import { Github } from '$lib/components/site/icons';
 
 	export let data: PageData;
 

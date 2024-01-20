@@ -2,13 +2,11 @@
 	import { beforeNavigate, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import * as Tooltip from '$lib/components/ui/tooltip';
-	import { cn } from '$lib/utils';
 	import axios from 'axios';
-	import { Heart } from 'phosphor-svelte';
 	import { Button } from '$lib/components/ui/button';
 	import * as Dialog from '$lib/components/ui/dialog';
-	import { Github, Loader2 } from 'lucide-svelte';
 	import { signIn } from '@auth/sveltekit/client';
+	import { Github, Heart, HeartFill, Spinner } from './icons';
 
 	let liked: boolean = false;
 	let loading = false;
@@ -73,9 +71,13 @@
 				class="flex h-10 w-10 cursor-pointer items-center justify-center gap-2 rounded-full p-1"
 			>
 				{#if !loading}
-					<Heart class={cn('h-5 w-5', liked && 'text-red-500')} weight={liked ? 'fill' : 'bold'} />
+					{#if liked}
+						<HeartFill class="h-5 w-5 text-red-500" />
+					{:else}
+						<Heart class="h-5 w-5" />
+					{/if}
 				{:else}
-					<Loader2 class="h-4 w-4 animate-spin" />
+					<Spinner class="h-4 w-4 animate-spin" />
 				{/if}
 			</button>
 		</Tooltip.Trigger>
@@ -107,7 +109,7 @@
 				>
 					<Github class="h-5 w-5" />
 					{#if signingIn && isNavigating}
-						<Loader2 class="h-4 w-4 animate-spin" />
+						<Spinner class="h-4 w-4 animate-spin" />
 					{:else}
 						Sign in with GitHub
 					{/if}

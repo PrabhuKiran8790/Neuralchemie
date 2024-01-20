@@ -6,7 +6,7 @@
 	import { Button } from '../ui/button';
 	import { cn, formatDate } from '$lib/utils';
 	import type { Post } from '$lib/types';
-	import { Calendar } from 'phosphor-svelte';
+	import { Calendar } from './icons';
 
 	export let author: Author_;
 	export let posts: Post[];
@@ -67,7 +67,7 @@
 								{#each posts as post (post.slug)}
 									<a href={`/blog/${post.slug}`} class="block">
 										<div class="flex items-center gap-2 text-xs text-muted-foreground">
-											<Calendar class="h-3 w-3" />
+											<Calendar />
 											<h1>{formatDate(post.date)}</h1>
 										</div>
 										<h1 class="hover:underline">

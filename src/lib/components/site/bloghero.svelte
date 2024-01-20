@@ -1,10 +1,9 @@
 <script lang="ts">
 	import { formatDate } from '$lib/utils';
-	import { Calendar, Tag as TagIcon } from 'lucide-svelte';
 	import type { PageData } from '../../../routes/blog/[slug]/$types';
 	import { tagToSlug } from '$lib/posts';
 	import { AuthorWrapper, Tag } from '.';
-	import { page } from '$app/stores';
+	import { Calendar, TagIcon } from './icons';
 
 	export let data: PageData;
 	$: ({ meta } = data);

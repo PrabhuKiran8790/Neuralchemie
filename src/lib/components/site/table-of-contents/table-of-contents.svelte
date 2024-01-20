@@ -2,9 +2,8 @@
 	import { onMount } from 'svelte';
 	import { Tree, type TableOfContents, type TableOfContentsItem } from '.';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
-	import { BookOpen } from 'lucide-svelte';
 	import { currentHeadingId } from '$lib/stores';
-	import { page } from '$app/stores';
+	import { BookOpenText } from '../icons';
 
 	let filteredHeadingsList: TableOfContents;
 
@@ -86,7 +85,7 @@
 	<DropdownMenu.Trigger
 		class="flex h-10 w-10 items-center justify-center rounded-full p-1 hover:bg-gray-200 dark:hover:bg-zinc-900"
 	>
-		<BookOpen class="h-5 w-5" />
+		<BookOpenText class="h-5 w-5" />
 	</DropdownMenu.Trigger>
 	<DropdownMenu.Content
 		class="z-[100] min-w-[95%] border border-primary px-3 pb-2 md:min-w-[60%] lg:min-w-[30%]"

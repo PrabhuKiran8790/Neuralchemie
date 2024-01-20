@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { Command as CommandIcon, MagnifyingGlass as Search } from 'phosphor-svelte';
-
 	import * as Command from '$lib/components/ui/command';
-
 	import { goto } from '$app/navigation';
 	import { cn, formatDate } from '$lib/utils';
 	import { onMount } from 'svelte';
 	import type { PageData } from '../../../routes/blog/$types';
 	import { Badge } from '../ui/badge';
 	import { Button } from '../ui/button';
+	import { CommandIcon, MagnifyingGlass } from './icons';
 
 	export let data: PageData;
 	let searchOpen = false;
@@ -40,7 +38,7 @@
 	{...$$restProps}
 >
 	<span class="inline-flex items-center">
-		<Search class="mr-2 h-4 w-4" />
+		<MagnifyingGlass class="mr-2 h-4 w-4" />
 		Search blogs</span
 	>
 	<kbd

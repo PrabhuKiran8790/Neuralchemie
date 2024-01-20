@@ -1,10 +1,10 @@
 <script lang="ts">
 	import * as HoverCard from '$lib/components/ui/hover-card';
-	import { Planet } from 'phosphor-svelte';
 	import { buttonVariants } from '../ui/button';
 	import * as Avatar from '$lib/components/ui/avatar';
 	import type { Author_ } from '$lib/config';
 	import { cn } from '$lib/utils';
+	import { Planet } from './icons';
 
 	export let author: Author_ | null;
 	export let hover: boolean = false;

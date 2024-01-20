@@ -2,8 +2,8 @@
 	import { tagToSlug } from '$lib/posts';
 	import type { Post } from '$lib/types';
 	import { cn, formatDate } from '$lib/utils';
-	import { Heart } from 'phosphor-svelte';
 	import { AuthorWrapper, Tag } from '.';
+	import { HeartFill } from './icons';
 
 	export let post: Post;
 	export let keepImage: boolean = true;
@@ -58,7 +58,7 @@
 				</h1>
 				{#if likesCount > 0}
 					<div class="flex items-center gap-1 text-xs">
-						<Heart class="size-3 text-gray-400" weight="fill" />
+						<HeartFill class="size-3 text-gray-400" />
 						<h1>{likesCount}</h1>
 					</div>
 				{/if}

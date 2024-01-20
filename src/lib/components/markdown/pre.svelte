@@ -1,11 +1,10 @@
 <script lang="ts">
-	import { Toaster, toast } from 'svelte-french-toast';
 	import { fly } from 'svelte/transition';
 	import { extensionMappings } from './language-icons/getLangIcons';
-	import { Check, Copy } from 'lucide-svelte';
 	import LangIcon from './language-icons/lang-icon.svelte';
 	import { onMount } from 'svelte';
 	import { cn } from '$lib/utils';
+	import { Check, Copy } from '../site/icons';
 
 	let className: string | undefined | null = undefined;
 	// export { className as class };
@@ -18,9 +17,6 @@
 	const handleCopy = () => {
 		if (codeElement) {
 			navigator.clipboard.writeText(codeElement.innerText ?? '');
-			toast.success('Copied', {
-				style: 'background: #333; color: #fff;'
-			});
 		}
 
 		copyState = true;
@@ -78,8 +74,6 @@
 	});
 </script>
 
-<Toaster />
-
 <div class={cn($$restProps.class, title__ ? 'mt-[14px]' : 'mb-2')}>
 	{#if title__}
 		<div
@@ -132,11 +126,11 @@
 		>
 			{#if copyState}
 				<span in:fly={{ y: -4, delay: 50 }}>
-					<Check class="h-4 w-4" />
+					<Check />
 				</span>
 			{:else}
 				<span in:fly={{ y: 4, delay: 50 }}>
-					<Copy class="h-4 w-4" />
+					<Copy />
 				</span>
 			{/if}</button
 		>

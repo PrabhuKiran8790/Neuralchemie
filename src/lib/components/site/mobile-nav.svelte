@@ -2,13 +2,13 @@
 	import { fade } from 'svelte/transition';
 	import { onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
-	import { List, X } from 'phosphor-svelte';
 	import { cn } from '$lib/utils';
 	import { NN, ThemeToggle } from '.';
 	import { config, getNameFromPath } from '$lib/config';
 	import { navigating, page } from '$app/stores';
 	import Liking from './liking.svelte';
 	import { Toc } from './table-of-contents';
+	import { Close, List } from './icons';
 
 	let showScrollToTop = true;
 	let prevScrollY = 0;
@@ -64,7 +64,7 @@
 					{#if getNameFromPath($page.url.pathname)}
 						<div class="flex items-center justify-center gap-3">
 							<div class="h-5 w-[1px] bg-primary"></div>
-							<p class="text-xs tracking-wider -mb-1">
+							<p class="-mb-1 text-xs tracking-wider">
 								{getNameFromPath($page.url.pathname)}
 							</p>
 						</div>
@@ -82,7 +82,7 @@
 					{#if !showDrawer}
 						<List class="size-6" />
 					{:else}
-						<X class="size-6" />
+						<Close class="size-6" />
 					{/if}
 				</button>
 			</div>

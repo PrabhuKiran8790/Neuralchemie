@@ -2,7 +2,6 @@
 	import { tagToSlug } from '$lib/posts';
 	import type { Post } from '$lib/types';
 	import { cn } from '$lib/utils';
-	import Balancer from 'svelte-wrap-balancer';
 	import { AuthorWrapper, Tag } from '.';
 	import { badgeVariants } from '../ui/badge';
 	import { Button } from '../ui/button';
@@ -20,36 +19,34 @@
 						<hr class="border-gray-300 dark:border-gray-700" />
 					</div>
 				</div>
-				<Balancer>
-					<div class="flex flex-col gap-4">
-						<!-- <p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p> -->
-						<a href={`/blog/${post.slug}`}>
-							<h1 class="text-2xl font-bold leading-[1.1] tracking-wider md:text-[40px]">
-								{post.title}
-							</h1>
-						</a>
-						<p class="text-muted-foreground">{post.description}</p>
-						<AuthorWrapper {post} />
-						<div class="flex flex-wrap gap-2">
-							{#each post.tags as tag}
-								<Tag
-									{tag}
-									href={`/tags/${tagToSlug(tag)}`}
-									class={cn(
-										badgeVariants({
-											variant: 'secondary'
-										}),
-										'rounded-md border'
-									)}
-									shallow
-								/>
-							{/each}
-						</div>
-						<div>
-							<Button href={`/blog/${post.slug}`} class="mt-4">Read more</Button>
-						</div>
+				<div class="flex flex-col gap-4">
+					<!-- <p class="-my-2 text-sm tracking-widest">{formatDate(post.date)}</p> -->
+					<a href={`/blog/${post.slug}`}>
+						<h1 class="text-2xl font-bold leading-[1.1] tracking-wider md:text-[40px]">
+							{post.title}
+						</h1>
+					</a>
+					<p class="text-muted-foreground">{post.description}</p>
+					<AuthorWrapper {post} />
+					<div class="flex flex-wrap gap-2">
+						{#each post.tags as tag}
+							<Tag
+								{tag}
+								href={`/tags/${tagToSlug(tag)}`}
+								class={cn(
+									badgeVariants({
+										variant: 'secondary'
+									}),
+									'rounded-md border'
+								)}
+								shallow
+							/>
+						{/each}
 					</div>
-				</Balancer>
+					<div>
+						<Button href={`/blog/${post.slug}`} class="mt-4">Read the blog</Button>
+					</div>
+				</div>
 			</div>
 			<div class="hidden w-[50%] md:block">
 				{#if post.image}

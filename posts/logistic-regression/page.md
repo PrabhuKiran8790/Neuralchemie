@@ -1,7 +1,7 @@
 ---
 title: "Beyond Yes or No: How Logistic Regression Makes Predictions with Probabilities"
 description: "Study the concept of classification and its evaluation metrics along with the Python Implementation of a Fundamental Algorithm: The Logistic Regression"
-date: '2024-01-21'
+date: '2024-01-20'
 image: '/posts/logistic-regression/thumbnail.png'
 author:
     - Shayaan

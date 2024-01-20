@@ -4,10 +4,10 @@
 	import { Toc } from '$lib/components/site/table-of-contents';
 	import * as DropdownMenu from '$lib/components/ui/dropdown-menu';
 	import * as Tooltip from '$lib/components/ui/tooltip';
-	import { ArrowUp, MessageSquare, Share2 } from 'lucide-svelte';
 	import { fly } from 'svelte/transition';
 	import Linkedin from './icons/linkedin.svelte';
 	import Liking from './liking.svelte';
+	import { Share, ChatTeardropText, ArrowUp } from './icons';
 
 	export let element: HTMLElement | null = null;
 	export let showScrollToTop: boolean;
@@ -36,7 +36,7 @@
 						}}
 						class="flex h-10 w-10 items-center justify-center rounded-full p-1 hover:bg-gray-200 dark:hover:bg-zinc-900"
 					>
-						<MessageSquare class="h-5 w-5" />
+						<ChatTeardropText class="h-5 w-5" />
 					</button>
 				</Tooltip.Trigger>
 				<Tooltip.Content class="border border-primary">
@@ -60,7 +60,7 @@
 					>
 						<DropdownMenu.Root>
 							<DropdownMenu.Trigger>
-								<Share2 class="h-5 w-5" />
+								<Share class="h-5 w-5" />
 							</DropdownMenu.Trigger>
 							<DropdownMenu.Content>
 								<DropdownMenu.Group>
