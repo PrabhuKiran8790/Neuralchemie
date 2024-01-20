@@ -1,4 +1,16 @@
-# Day 7: Beyond Yes or No: How Logistic Regression Makes Predictions with Probabilities
+---
+title: "Beyond Yes or No: How Logistic Regression Makes Predictions with Probabilities"
+description: "Study the concept of classification and its evaluation metrics along with the Python Implementation of a Fundamental Algorithm: The Logistic Regression"
+date: '2024-01-21'
+image: '/posts/logistic-regression/thumbnail.png'
+author:
+    - Shayaan
+tags: 
+    - Machine Learning
+    - Classification
+draft: false
+order: 7
+---
 
 So far we have discussed about Linear Regression and Polynomial Regression which help in determining outputs on continuous data. The output of the model in these models can be ranging anywhere from the lower end of the described equation to the upper end. Today we are going to dive into a new category of Machine Learning: Classification.
 
@@ -20,31 +32,31 @@ In the above example lies a case where an image may contain more than one animal
 
 In today’s article, we will be discussing about Logistic Regression, a Binary Classification algorithm derived from Linear Regression. The Logistic Regression algorithm utilizes the sigmoid function which lines in the range 0 to 1.
 
-$$
+```math
 Sig(x) = \frac{1}{1+e^{-x}}
-$$
+```
 
-![sigmoid.png](Day%207%20Beyond%20Yes%20or%20No%20How%20Logistic%20Regression%20Mak%20024430e2c92d407e9d2bbee450793ade/sigmoid.png)
+![Sigmoid Function](/posts/logistic-regression/sigmoid.png)
 
 Since the output of the function lies between 0 to 1, there are only two possible outcomes which can be mapped based on the data. For example, 0 can be mapped to “NO” and 1 can be mapped to “YES”.
 
-The Logistic Regression algorithm is highly dependent on Linear Regression. The $x$ in sigmoid function uses the same equation as that of Linear Regression i.e. $**y = m_1 x_1 + m_2 x_2 + … + b**$ and the m and b here are optimized in the training process in order to get the minimum loss. The resulting equation for Logistic Regression is as follows:
+The Logistic Regression algorithm is highly dependent on Linear Regression. The $$x$$ in sigmoid function uses the same equation as that of Linear Regression i.e. $$y = m_1 x_1 + m_2 x_2 + … + b$$ and the m and b here are optimized in the training process in order to get the minimum loss. The resulting equation for Logistic Regression is as follows:
 
-$$
+```math
 Logistic Regression = \frac{1}{1+e^{-(m_1 x_1 + m_2 x_2 + ... + b)}}
-$$
+```
 
-Let $z = m_1 x_1 + m_2 x_2 + … + b$ 
+Let $$z = m_1 x_1 + m_2 x_2 + … + b$$
 
-$$
+```math
 Logistic Regression = \frac{1}{1+e^{-z}}
-$$
+```
 
 The loss function of Logistic Regression can be defined as:
 
-$$
+```math
 logloss = y . log(y_{pred}) - (1-y).log(1-y_{pred})
-$$
+```
 
 ## The Dataset
 
@@ -85,9 +97,9 @@ import math
 
 Next step, we load and preprocess the data. This involves converting pass and fail to numeric data i.e. 1 and 0 and then the columns Hours Studied and Past Scores are normalized. Normalization means to scale the values of column between 0 and 1. This is done so that the computation becomes easier and the system can handle larger values. The formula for normalization is: 
 
-$$
+```math
 X_{new} = \frac{X - X_{min}}{X_{max} - X_{min}}
-$$
+```
 
 ```python
 # Load the data
@@ -215,13 +227,13 @@ Now let’s discuss the evaluation metrics.
 
 Accuracy is defined as the percentage of samples correctly prediction with respect to total number of samples.
 
-$$
+```math
 Accuracy = \frac{Correctly\,Predicted\,Samples}{Total\,Number\,of\,Samples}
-$$
+```
 
-$$
+```math
 Accuracy = \frac{TP+FP}{TP+FP+TN+FN}
-$$
+```
 
 ```python
 actual_outputs = data["Exam Result"]
@@ -235,7 +247,7 @@ accuracy = correctly_predicted / len(actual_outputs)
 print(accuracy)
 ```
 
-```python
+```
 1.0
 ```
 
@@ -243,7 +255,7 @@ print(accuracy)
 
 A classification matrix is a matrix representation of the categories that we discussed above. The TP, FP, TN and FN. These values are arranged in the following form:
 
-![Untitled](Day%207%20Beyond%20Yes%20or%20No%20How%20Logistic%20Regression%20Mak%20024430e2c92d407e9d2bbee450793ade/Untitled.png)
+![Sample Confusion Matrix](/posts/logistic-regression/sample_cm.png)
 
 Let’s generate a confusion matrix for our code using the scikit-learn library in python.
 
@@ -264,7 +276,7 @@ cm_display.plot()
 
 The output image of the above code is:
 
-![Untitled](Day%207%20Beyond%20Yes%20or%20No%20How%20Logistic%20Regression%20Mak%20024430e2c92d407e9d2bbee450793ade/Untitled%201.png)
+![Generated Confusion Matrix](/posts/logistic-regression/generated_cm.png)
 
 In the code for confusion matrix, we have saved the tp, fp, tn, fn in variables. These variables can be further used to calculate more metrics. Let’s look at those.
 
@@ -272,16 +284,16 @@ In the code for confusion matrix, we have saved the tp, fp, tn, fn in variables.
 
 Precision is defined as the quality of a positive prediction made by the model, i.e., the percentage of True Positive predictions as compared to total number of positive predictions.
 
-$$
+```math
 Precision = \frac{TP}{TP + FP}
-$$
+```
 
 ```python
 precision = tp / (fp + tp)
 print(precision)
 ```
 
-```python
+```
 1.0
 ```
 
@@ -289,16 +301,16 @@ print(precision)
 
 It is defined as the percentage of correctly identified positive samples as compared to the total number of positive samples in the original dataset.
 
-$$
+```math
 Recall = \frac{TP}{TP + FN}
-$$
+```
 
 ```python
 recall = tp / (tp + fn)
 print(recall)
 ```
 
-```python
+```
 1.0
 ```
 
@@ -306,24 +318,24 @@ print(recall)
 
 The F1 Score is the combination of both Precision and Recall and provides a single metric to understand model performance. The equation for F1 Score is:
 
-$$
+```math
 F1\,Score = \frac{2}{\frac{1}{Precision} + \frac{1}{Recall}}
-$$
+```
 
-$$
+```math
 F1\,Score = \frac{2}{\frac{TP+FP}{TP} + \frac{TP + FN}{TP}}
-$$
+```
 
-$$
+```math
 F1\,Score = \frac{2\,TP}{2TP + FP + FN}
-$$
+```
 
 ```python
 f1score = 2 * tp / (2 * tp + fp + fn)
 print(f1score)
 ```
 
-```python
+```
 1.0
 ```
 
