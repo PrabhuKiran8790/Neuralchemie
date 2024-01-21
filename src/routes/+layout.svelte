@@ -12,7 +12,7 @@
 	<div class="mb-20 flex-1 md:mb-0">
 		<slot />
 	</div>
-	<footer class="hidden border-t md:block">
+	<footer class="border-t">
 		<Footer />
 	</footer>
 </div>
