@@ -11,6 +11,7 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import { BUNDLED_LANGUAGES, getHighlighter } from 'shiki-es';
 import { escapeSvelte } from '@huntabyte/mdsvex';
 import katex from 'katex';
+import rehypeMermaid from 'rehype-mermaid'
 
 // import { highlightCode } from './src/lib/scripts/highlight.js';
 
@@ -66,51 +67,6 @@ const katex_blocks = () => (tree) => {
 		}
 	});
 };
-
-// const katex_inline = () => (tree) => {
-// 	visit(tree, 'text', (node, index, parent) => {
-// 		const regex = /\$\$(.*?)\$\$/g;
-// 		let match;
-
-// 		while ((match = regex.exec(node.value)) !== null) {
-// 			const equation = match[1].trim();
-
-// 			// Replace double backslashes with single backslashes
-// 			const cleanedEquation = equation.replace(/\\\\/g, '\\');
-
-// 			const str = katex.renderToString(cleanedEquation, {
-// 				throwOnError: true,
-// 				errorColor: '#cc0000',
-// 				strict: 'warn',
-// 				output: 'htmlAndMathml',
-// 				trust: false,
-// 				macros: { '\\f': '#1f(#2)' }
-// 			});
-
-// 			// Escape the HTML for Svelte
-// 			const escapedHTML = escapeSvelte(str);
-
-// 			// Replace the matched portion with the escaped HTML
-// 			const before = node.value.slice(0, match.index);
-// 			const after = node.value.slice(match.index + match[0].length);
-// 			const renderedEquation = '<span class="text-base">{@html `' + escapedHTML + '`}</span>';
-
-// 			// Create a new 'raw' node with the rendered equation
-// 			const rawNode = {
-// 				type: 'raw',
-// 				value: renderedEquation
-// 			};
-
-// 			// Insert the 'raw' node into the parent's children array
-// 			parent.children.splice(
-// 				index,
-// 				1,
-// 				...[{ type: 'text', value: before }, rawNode, { type: 'text', value: after }]
-// 			);
-// 		}
-// 	});
-// };
-
 
 const katex_inline = () => (tree) => {
   visit(tree, 'text', (node, index, parent) => {
@@ -204,6 +160,41 @@ const replaceQuotes = () => (tree) => {
 	});
 };
 
+
+function processMermaid() {
+  return (tree) => {
+    visit(tree, 'element', (node, index, parent) => {
+      // Find the <pre> tag containing the SVG
+      if (
+        node.tagName === 'Components.pre' &&
+        node.children.length === 1 &&
+        node.children[0].tagName === 'svg'
+      ) {
+        // Replace the <pre> tag with a <div> tag containing the SVG
+        const svg = node.children[0];
+        const div = {
+          type: 'element',
+          tagName: 'div',
+          properties: { class: 'mermaid-block' },
+          children: [svg],
+        };
+        parent.children[index] = div;
+
+        // Add rx and ry attributes with a value of 10 to all rect elements inside the SVG
+        visit(svg, 'element', (svgNode) => {
+          if (svgNode.tagName === 'rect') {
+            svgNode.properties = {
+              ...svgNode.properties,
+              rx: '10',
+              ry: '10',
+            };
+          }
+        });
+      }
+    });
+  };
+}
+
 /** @type {import('mdsvex').MdsvexOptions} */
 export const mdsvexOptions = {
 	extensions: ['.md', '.svx'],
@@ -216,7 +207,9 @@ export const mdsvexOptions = {
 	// 	highlighter: highlightCode
 	// },
 	remarkPlugins: [katex_blocks, katex_inline, inlineKatexUsingInlineCode, replaceQuotes],
-	rehypePlugins: [
+	rehypePlugins:  [
+		rehypeMermaid,
+		processMermaid,
 		rehypeCustomComponents,
 		rehypeComponentPreToPre,
 		[rehypePrettyCode, prettyCodeOptions],
