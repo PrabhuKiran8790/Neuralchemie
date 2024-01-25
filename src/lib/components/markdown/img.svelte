@@ -14,7 +14,24 @@
 	}
 </script>
 
-<div class="flex items-center justify-center flex-col">
-	<img {src} {alt} class={cn('rounded-md mt-4', className)} {...$$restProps} loading="lazy" />
-	<p class="text-sm text-center text-muted-foreground">{alt ? alt : ''}</p>
-</div>
+{#if src && (src.includes('--dark') || src.includes('--light'))}
+	<div class="flex flex-col items-center justify-center">
+		<img
+			{src}
+			{alt}
+			class={cn(
+				'mt-4 rounded-md',
+				src?.includes('--dark') ? 'hidden dark:block' : 'block dark:hidden',
+				className
+			)}
+			{...$$restProps}
+			loading="lazy"
+		/>
+		<p class="text-center text-sm text-muted-foreground">{alt ? alt : ''}</p>
+	</div>
+{:else}
+	<div class="flex flex-col items-center justify-center">
+		<img {src} {alt} class={cn('mt-4 rounded-md', className)} {...$$restProps} loading="lazy" />
+		<p class="text-center text-sm text-muted-foreground">{alt ? alt : ''}</p>
+	</div>
+{/if}

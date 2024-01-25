@@ -19,14 +19,8 @@ Another decisive question could be if the person is fit for a trek or a hike.
 
 Let’s look at a visual representation of how a Decision Tree could help in this.
 
-```mermaid
-graph TD
-  A{Interested in Beaches or Mounains?} --> |Neutral|B{Fit for a Trek or a Hike?}
-	B --> |Yes|D	
-	A --> |Beaches|C[Go to Goa]
-	A --> |Mountains|D[Go to Lonavala]
-	B --> |No|C
-```
+![](/posts/decision-tree-classifier/--light-flow1.png)
+![](/posts/decision-tree-classifier/--dark-flow1.png)
 
 Shown above is a standard representation of a hypothetical situation but there’s a lot of math that goes into it. Ready for it? Let’s get right in!
 
@@ -223,10 +217,8 @@ Now that we have all the Information Gain Index, let’s analyze them.
 
 The highest Information Gain is to be selected as root node. In this case, it is Weather. Hence, the decision tree we get now is:
 
-```mermaid
-graph TD
-  A[Weather] --> Sunny & Rainy & Cloudy
-```
+![](/posts/decision-tree-classifier/--light-flow2.png)
+![](/posts/decision-tree-classifier/--dark-flow2.png)
 
 Now let’s do the further processing for the “Sunny” Condition. Consider the following dataset:
 
@@ -321,14 +313,8 @@ From the dataset, we can clearly notice that when Humidity is high, football is 
 
 The resulting decision tree is as follows:
 
-```mermaid
-graph TD
-  A[Weather] --> B[Sunny] & C[Rainy] & D[Cloudy]
-	B --> E[Humidity]
-	E --> |Normal| G[Play Football]
-	E --> |High| F[Don't Play Football]
-	
-```
+![](/posts/decision-tree-classifier/--light-flow3.png)
+![](/posts/decision-tree-classifier/--dark-flow3.png)
 
 Now let’s check the data for Rainy:
 
@@ -419,16 +405,8 @@ It can be seen that when Wind is Strong, football is not played and when it is W
 
 The resulting decision tree is as follows:
 
-```mermaid
-graph TD
-  A[Weather] --> B[Sunny] & C[Rainy] & D[Cloudy]
-	B --> E[Humidity]
-	E --> |Normal| F[Play Football]
-	E --> |High| G[Don't Play Football]
-	C --> H[Wind]
-	H --> |Strong| I[Play Football]
-	H --> |Weak| J[Don't Play Football]
-```
+![](/posts/decision-tree-classifier/--light-flow4.png)
+![](/posts/decision-tree-classifier/--dark-flow4.png)
 
 Now let’s look at the data for cloudy weather!
 
@@ -443,17 +421,8 @@ We can see that all the labels are “Yes” in this data. Hence we can conclude
 
 The final decision tree constructed will be as follows:
 
-```mermaid
-graph TD
-  A[Weather] --> B[Sunny] & C[Rainy] & D[Cloudy]
-	B --> E[Humidity]
-	E --> |Normal| F[Play Football]
-	E --> |High| G[Don't Play Football]
-	C --> H[Wind]
-	H --> |Strong| I[Play Football]
-	H --> |Weak| J[Don't Play Football]
-	D --> K[Play Football]
-```
+![](/posts/decision-tree-classifier/--light-flow5.png)
+![](/posts/decision-tree-classifier/--dark-flow5.png)
 
 ## Decision Tree Classifier: Gini Index Method
 
@@ -565,11 +534,8 @@ The lowest Gini Index is of Humidity. Therefore Humidity is selected as decision
 
 Therefore the tree that is formed is:
 
-```mermaid
-graph TD
-	A[Wind] --> |Strong| B[Play Football]
-	A --> |Weak| C[Don't Play Football]
-```
+![](/posts/decision-tree-classifier/--light-flow6.png)
+![](/posts/decision-tree-classifier/--dark-flow6.png)
 
 ## Python Implementation of Decision Tree Classifier
 
