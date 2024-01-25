@@ -64,6 +64,8 @@
 		"rehype-mermaid": "^2.1.0",
 		"svelte-meta-tags": "^3.1.0",
 		"tailwind-merge": "^2.2.0",
-		"tailwind-variants": "^0.1.19"
+		"tailwind-variants": "^0.1.19",
+		"playwright-aws-lambda": "^0.5.2",
+		"playwright-core": "npm:playwright-chromium@1.1.1"
 	}
 }
