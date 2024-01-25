@@ -11,7 +11,6 @@ import rehypePrettyCode from 'rehype-pretty-code';
 import { BUNDLED_LANGUAGES, getHighlighter } from 'shiki-es';
 import { escapeSvelte } from '@huntabyte/mdsvex';
 import katex from 'katex';
-import rehypeMermaid from 'rehype-mermaid'
 
 // import { highlightCode } from './src/lib/scripts/highlight.js';
 
@@ -161,40 +160,6 @@ const replaceQuotes = () => (tree) => {
 };
 
 
-function processMermaid() {
-  return (tree) => {
-    visit(tree, 'element', (node, index, parent) => {
-      // Find the <pre> tag containing the SVG
-      if (
-        node.tagName === 'Components.pre' &&
-        node.children.length === 1 &&
-        node.children[0].tagName === 'svg'
-      ) {
-        // Replace the <pre> tag with a <div> tag containing the SVG
-        const svg = node.children[0];
-        const div = {
-          type: 'element',
-          tagName: 'div',
-          properties: { class: 'mermaid-block' },
-          children: [svg],
-        };
-        parent.children[index] = div;
-
-        // Add rx and ry attributes with a value of 10 to all rect elements inside the SVG
-        visit(svg, 'element', (svgNode) => {
-          if (svgNode.tagName === 'rect') {
-            svgNode.properties = {
-              ...svgNode.properties,
-              rx: '10',
-              ry: '10',
-            };
-          }
-        });
-      }
-    });
-  };
-}
-
 /** @type {import('mdsvex').MdsvexOptions} */
 export const mdsvexOptions = {
 	extensions: ['.md', '.svx'],
@@ -208,8 +173,6 @@ export const mdsvexOptions = {
 	// },
 	remarkPlugins: [katex_blocks, katex_inline, inlineKatexUsingInlineCode, replaceQuotes],
 	rehypePlugins:  [
-		rehypeMermaid,
-		processMermaid,
 		rehypeCustomComponents,
 		rehypeComponentPreToPre,
 		[rehypePrettyCode, prettyCodeOptions],
