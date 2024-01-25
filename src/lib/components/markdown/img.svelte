@@ -14,14 +14,14 @@
 	}
 </script>
 
-{#if src && (src.includes('--dark') || src.includes('--light'))}
+{#if src && (src.startsWith('--dark') || src.startsWith('--light'))}
 	<div class="flex flex-col items-center justify-center">
 		<img
 			{src}
 			{alt}
 			class={cn(
 				'mt-4 rounded-md',
-				src?.includes('--dark') ? 'hidden dark:block' : 'block dark:hidden',
+				src?.startsWith('--dark') ? 'hidden dark:block' : 'block dark:hidden',
 				className
 			)}
 			{...$$restProps}
