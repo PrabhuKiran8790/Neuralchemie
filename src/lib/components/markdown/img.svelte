@@ -12,16 +12,26 @@
 		// only convert if starts with /posts because assets in static folder will be processed by vite
 		src = localToGithubURL({ src });
 	}
+
+	function getBaseName(filePath: string): string {
+		const normalizedPath = filePath.replace(/\\/g, '/'); // Normalize Windows-style paths
+		const parts = normalizedPath.split('/');
+		const fileNameWithExtension = parts[parts.length - 1];
+		const fileNameParts = fileNameWithExtension.split('.');
+		return fileNameParts[0]; // Return the base name without the extension
+	}
+
+	$: baseName = getBaseName(src!);
 </script>
 
-{#if src && (src.startsWith('--dark') || src.startsWith('--light'))}
+{#if src && (baseName.startsWith('--dark') || baseName.startsWith('--light'))}
 	<div class="flex flex-col items-center justify-center">
 		<img
 			{src}
 			{alt}
 			class={cn(
 				'mt-4 rounded-md',
-				src?.startsWith('--dark') ? 'hidden dark:block' : 'block dark:hidden',
+				baseName.startsWith('--dark') ? 'hidden dark:block' : 'block dark:hidden',
 				className
 			)}
 			{...$$restProps}
