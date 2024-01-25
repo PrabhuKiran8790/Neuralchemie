@@ -611,7 +611,7 @@ data['Model Predictions'].replace([0,1], ["No","Yes"], inplace=True)
 
 The Confusion Matrix produced by this code is as follows:
 
-![Confusion Matrix](posts/decision-tree-classifier/cm.png)
+![Confusion Matrix](/posts/decision-tree-classifier/cm.png)
 
 It can be interpreted by this confusion matrix that all the predictions were accurate and there were 5 true negatives and 9 true positives.
 
