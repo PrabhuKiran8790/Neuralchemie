@@ -140,6 +140,13 @@ thead {
 	@apply rounded-xl;
 }
 
-.katex-display {
-	@apply overflow-x-auto lg:overflow-x-visible;
+.katex {
+	@apply overflow-x-scroll lg:overflow-x-visible;
+	overflow-y: hidden;
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.katex::-webkit-scrollbar {
+	display: none; /* Chrome, Safari, and Opera */
 }
