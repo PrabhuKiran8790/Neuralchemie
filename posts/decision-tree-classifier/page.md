@@ -1,7 +1,7 @@
 ---
 title: "Decision Trees: The Branching Path to Better Choices"
 description: "See how trees work like flowcharts guiding the model in classifying the data!"
-date: '2024-01-25'
+date: '2024-01-26'
 image: '/posts/decision-tree-classifier/thumbnail.jpeg'
 author:
     - Shayaan
