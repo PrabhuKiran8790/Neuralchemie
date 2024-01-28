@@ -11,6 +11,7 @@
 <th
 	class={cn(
 		'h-12 border border-zinc-500 bg-muted px-4 text-center align-middle text-lg font-medium [&:has([role=checkbox])]:pr-0',
+		'sticky top-0',
 		className
 	)}
 	{...$$restProps}

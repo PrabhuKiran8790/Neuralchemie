@@ -8,7 +8,7 @@
 	export { className as class };
 </script>
 
-<div class="w-full overflow-auto my-5">
+<div class="w-full overflow-auto my-5 max-h-96 overflow-y-scroll">
 	<table class={cn('w-full caption-bottom text-sm border border-border rounded-lg', className)} {...$$restProps}>
 		<slot />
 	</table>
